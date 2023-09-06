@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Typography,
+  // useTheme,
 } from "@mui/material";
 import React from "react";
 
@@ -17,6 +18,8 @@ const priorityColor = (priority) => {
 }
 
 const UserTaskCard = ({ newtask, priority, width, completed }) => {
+  // const theme = useTheme();
+  // const boxShadow = theme?.shape;
   return (
     <Box
       width={width}
