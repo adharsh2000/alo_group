@@ -28,12 +28,28 @@
 //   );
 // }
 
-import React from 'react'
+// import React from 'react'
 
-const LeaveCalender = () => {
+// const LeaveCalender = () => {
+//   return (
+//     <div>LeaveCalender</div>
+//   )
+// }
+
+// export default LeaveCalender
+
+import React from "react";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { Box } from "@mui/material";
+
+export default function LeaveCalender() {
   return (
-    <div>LeaveCalender</div>
-  )
+    <LocalizationProvider dateAdapter={AdapterDayjs} >
+      <Box width={300} height={300}>
+        <DateCalendar showDaysOutsideCurrentMonth fixedWeekNumber={6} />
+      </Box>
+    </LocalizationProvider>
+  );
 }
-
-export default LeaveCalender
