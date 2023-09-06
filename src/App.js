@@ -6,6 +6,7 @@ import AdminLogin from "./Pages/Admin/AdminLogin";
 import EmpDashboard from "./Pages/Employee/EmpDashboard";
 import EmpProject from "./Pages/Employee/EmpProject";
 import EmpTasks from "./Pages/Employee/EmpTasks";
+import EmpMail from "./Pages/Employee/EmpMail";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/dashboard" element={<EmpDashboard /> } />
         <Route path="/projects" element={<EmpProject /> } />
         <Route path="/mytasks" element={<EmpTasks /> } />
+        <Route path="/mailing" element={<EmpMail /> } />
       </Routes>
     </Box>
     </ThemeProvider>
