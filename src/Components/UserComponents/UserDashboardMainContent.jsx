@@ -81,7 +81,7 @@ const UserDashboardMainContent = () => {
             border="1px solid black"
           >
             <Box display="flex" alignItems="center" px={3} height="50%">
-              <img src={data.smallIcon} alt="" />
+              <img src={data.smallIcon} alt="icon" />
               <Typography ml={1}>{data.content}</Typography>
             </Box>
             <Box
