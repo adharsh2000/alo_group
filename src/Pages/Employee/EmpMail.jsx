@@ -3,6 +3,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserHeader from "../../Components/UserComponents/UserHeader";
 import MailIcon from "../../Icons/MailIcon.svg";
+import EmpMailForm from "../../Components/Form/EmpMailForm";
 
 const EmpMail = () => {
   const theme = useTheme();
@@ -27,7 +28,7 @@ const EmpMail = () => {
           height={"85vh"}
         >
           <Box bgcolor={paper} flex={3} borderRadius="20px">
-            form
+            <EmpMailForm />
           </Box>
           <Box bgcolor={paper} flex={1} display="flex" justifyContent="center" borderRadius="20px">
             <Box
