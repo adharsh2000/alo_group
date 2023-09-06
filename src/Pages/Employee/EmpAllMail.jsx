@@ -4,6 +4,7 @@ import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserHeader from "../../Components/UserComponents/UserHeader";
 import LeftArrowIcon from "../../Icons/LeftArrowIcon.svg";
 import UserMailCard from "../../Components/UserComponents/UserMailCard";
+
 const EmpAllMail = () => {
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.default;

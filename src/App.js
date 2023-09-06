@@ -8,6 +8,7 @@ import EmpProject from "./Pages/Employee/EmpProject";
 import EmpTasks from "./Pages/Employee/EmpTasks";
 import EmpMail from "./Pages/Employee/EmpMail";
 import EmpAllMail from "./Pages/Employee/EmpAllMail";
+import EmpNotifications from "./Pages/Employee/EmpNotifications";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/mytasks" element={<EmpTasks /> } />
         <Route path="/mailing" element={<EmpMail /> } />
         <Route path="/allmails" element={<EmpAllMail /> } />
+        <Route path="/notifications" element={<EmpNotifications /> } />
       </Routes>
     </Box>
     </ThemeProvider>
