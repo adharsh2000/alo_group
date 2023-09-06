@@ -173,8 +173,8 @@ const UserDashboardMainContent = () => {
         <Typography color="#1272A5">View all</Typography>
       </Box>
       <Box display="flex" flexWrap="wrap" gap={2} alignItems="center" justifyContent="space-evenly">
-       <UserTaskCard width={400}/>
-       <UserTaskCard width={400}/>
+       <UserTaskCard width={400} priority={"High"}/>
+       <UserTaskCard width={400} priority={"Low"}/>
       </Box>
       {/* new task */}
       <Box display='flex' justifyContent="space-between" mt={4} mb={1} px={3}>
@@ -185,8 +185,8 @@ const UserDashboardMainContent = () => {
         <Typography color="#1272A5">View all</Typography>
       </Box>
       <Box display="flex" flexWrap="wrap" gap={2} alignItems="center" justifyContent="space-evenly">
-       <UserTaskCard width={400}/>
-       <UserTaskCard width={400}/>
+       <UserTaskCard newtask={true} width={400} priority={"Medium"}/>
+       <UserTaskCard newtask={true} width={400} priority={"High"}/>
       </Box>
     </Box>
   );

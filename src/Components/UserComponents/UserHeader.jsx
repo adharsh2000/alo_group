@@ -3,6 +3,7 @@ import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificatioIcon from "../../Icons/Notification.svg";
 import ChatIcon from "../../Icons/Chat.svg";
+import { Link } from "react-router-dom";
 
 const UserHeader = () => {
   return (
@@ -47,7 +48,9 @@ const UserHeader = () => {
           justifyContent="center"
           mr={5}
         >
+          <Link to="/notifications">
           <img src={NotificatioIcon} alt="notification" />
+          </Link>
         </Box>
         <Box
           bgcolor="white"
@@ -58,7 +61,9 @@ const UserHeader = () => {
           alignItems="center"
           justifyContent="center"
         >
+          <Link to="/messages">
           <img src={ChatIcon} alt="chat" />
+          </Link>
         </Box>
       </Box>
     </Box>

@@ -55,7 +55,7 @@ const EmpMessages = () => {
             </Box>
             <TextField placeholder="Write a message" fullWidth sx={{
                 boxShadow:boxShadow,
-                overflow:'hidden',
+                borderRadius:'10px'
             }}/>
           </Box>
         </Box>

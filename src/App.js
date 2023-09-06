@@ -10,6 +10,7 @@ import EmpMail from "./Pages/Employee/EmpMail";
 import EmpAllMail from "./Pages/Employee/EmpAllMail";
 import EmpNotifications from "./Pages/Employee/EmpNotifications";
 import EmpMessages from "./Pages/Employee/EmpMessages";
+import EmpLeave from "./Pages/Employee/EmpLeave";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/allmails" element={<EmpAllMail /> } />
         <Route path="/notifications" element={<EmpNotifications /> } />
         <Route path="/messages" element={<EmpMessages /> } />
+        <Route path="/leaverecords" element={<EmpLeave /> } />
       </Routes>
     </Box>
     </ThemeProvider>

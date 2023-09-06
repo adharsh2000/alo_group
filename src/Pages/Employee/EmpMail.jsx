@@ -4,13 +4,14 @@ import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserHeader from "../../Components/UserComponents/UserHeader";
 import MailIcon from "../../Icons/MailIcon.svg";
 import EmpMailForm from "../../Components/Form/EmpMailForm";
+import { Link } from "react-router-dom";
 
 const EmpMail = () => {
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
   const boxShadow = theme?.shape?.shadow;
-//   const borderRadius = theme?.shape?.borderRadius;
+  //   const borderRadius = theme?.shape?.borderRadius;
   return (
     <Box width="100%" bgcolor={bgColor} display="flex">
       <Box display="flex">
@@ -30,7 +31,13 @@ const EmpMail = () => {
           <Box bgcolor={paper} flex={3} borderRadius="20px">
             <EmpMailForm />
           </Box>
-          <Box bgcolor={paper} flex={1} display="flex" justifyContent="center" borderRadius="20px">
+          <Box
+            bgcolor={paper}
+            flex={1}
+            display="flex"
+            justifyContent="center"
+            borderRadius="20px"
+          >
             <Box
               border="1px solid #000"
               width="90%"
@@ -42,9 +49,25 @@ const EmpMail = () => {
               mt={2}
               boxShadow={boxShadow}
               borderRadius="10px"
+              textAlign="center"
             >
-              <img src={MailIcon} alt="mail" width={30} />
-              <Typography fontWeight="bold">All Mails</Typography>
+              <Link
+                to={"/allmails"}
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  display: "flex",
+                }}
+                
+              >
+                <img src={MailIcon} alt="mail" width={30}  />
+                <Typography
+                  fontWeight="bold"
+                  sx={{ margin: "auto", whiteSpace: "nowrap" }}
+                >
+                  All Mails
+                </Typography>
+              </Link>
             </Box>
           </Box>
         </Box>

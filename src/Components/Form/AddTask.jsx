@@ -96,7 +96,7 @@ const AddTask = ({handleClose}) => {
         </Box>
         <Box width={200} mt={2}>
           <Typography fontSize="14px" fontWeight="bold" marginBottom="8px">
-            Task Name
+            Details
           </Typography>
           <input
             type="text"
@@ -110,7 +110,7 @@ const AddTask = ({handleClose}) => {
         </Box>
         <Box width={300} mt={2} ml="auto">
           <Typography fontSize="14px" fontWeight="bold" marginBottom="8px">
-            Task Name
+            Priority
           </Typography>
           <RadioGroup
             name="priority"
