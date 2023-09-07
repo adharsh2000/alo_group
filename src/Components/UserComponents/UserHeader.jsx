@@ -4,8 +4,9 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificatioIcon from "../../Icons/Notification.svg";
 import ChatIcon from "../../Icons/Chat.svg";
 import { Link } from "react-router-dom";
+import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 
-const UserHeader = () => {
+const UserHeader = ({open, setOpen}) => {
   return (
     <Box
       width={1250}
@@ -13,6 +14,23 @@ const UserHeader = () => {
       display="flex"
       borderBottom="1px solid black"
     >
+      <IconButton aria-label="navbar" sx={{
+        "&:hover": {
+          backgroundColor: "transparent",
+        },
+        '@media (min-width: 600px)':{
+        display: 'none',
+        width:400,
+      }}}
+      onClick={()=>setOpen(!open)}
+      >
+        <MenuOutlinedIcon  sx={{
+          backgroundColor:'#fff',
+          color:'#1272A5',
+          fontSize:'33px',
+          borderRadius:'5px'
+        }}/>
+      </IconButton>
       <Box
         width="70%"
         height="100%"
@@ -49,7 +67,7 @@ const UserHeader = () => {
           mr={5}
         >
           <Link to="/notifications">
-          <img src={NotificatioIcon} alt="notification" />
+            <img src={NotificatioIcon} alt="notification" />
           </Link>
         </Box>
         <Box
@@ -62,7 +80,7 @@ const UserHeader = () => {
           justifyContent="center"
         >
           <Link to="/messages">
-          <img src={ChatIcon} alt="chat" />
+            <img src={ChatIcon} alt="chat" />
           </Link>
         </Box>
       </Box>
@@ -71,3 +89,4 @@ const UserHeader = () => {
 };
 
 export default UserHeader;
+

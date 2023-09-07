@@ -40,7 +40,9 @@ const UserNavbar = ({open,setOpen}) => {
         sx={{
           borderRadius: `0px 20px 20px 0px`,
          '@media (max-width: 600px)' :{
-            position:'static'
+            position:'static',
+            height:"50vh",
+            width:300
           }
         }}
       >

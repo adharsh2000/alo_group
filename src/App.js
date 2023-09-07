@@ -11,6 +11,7 @@ import EmpAllMail from "./Pages/Employee/EmpAllMail";
 import EmpNotifications from "./Pages/Employee/EmpNotifications";
 import EmpMessages from "./Pages/Employee/EmpMessages";
 import EmpLeave from "./Pages/Employee/EmpLeave";
+import AdminDashboard from "./Pages/Admin/AdminDashboard";
 
 
 function App() {
@@ -22,8 +23,8 @@ function App() {
       // height:'80vh',
     }}>
       <Routes>
+        {/* employee */}
         <Route path="/" element={<EmployeeLogin /> } />
-        <Route path="/admin" element={<AdminLogin /> } />
         <Route path="/dashboard" element={<EmpDashboard /> } />
         <Route path="/projects" element={<EmpProject /> } />
         <Route path="/mytasks" element={<EmpTasks /> } />
@@ -32,6 +33,10 @@ function App() {
         <Route path="/notifications" element={<EmpNotifications /> } />
         <Route path="/messages" element={<EmpMessages /> } />
         <Route path="/leaverecords" element={<EmpLeave /> } />
+
+        {/* admin */}
+        <Route path="/admin" element={<AdminLogin /> } />
+        <Route path="/admin/dashboard" element={<AdminDashboard /> } />
       </Routes>
     </Box>
     </ThemeProvider>

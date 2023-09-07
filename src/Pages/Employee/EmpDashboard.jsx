@@ -1,10 +1,10 @@
-import { Box, Button, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import UserHeader from "../../Components/UserComponents/UserHeader";
 import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserDashboardMainContent from "../../Components/UserComponents/UserDashboardMainContent";
 import DashboardMessagecontainer from "../../Components/UserComponents/DashboardMessagecontainer";
-import DashboardReminderContainer from "../../Components/UserComponents/DashboardReminderContainer";
+import DashboardReminderContainer from "../../Components/Common/DashboardReminderContainer";
 
 const EmpDashboard = () => {
   const theme = useTheme();
@@ -16,11 +16,16 @@ const EmpDashboard = () => {
       <Box display="flex">
         <UserNavbar open={open} setOpen={setOpen} />
       </Box>
-      <Box ml={36}>
-        <UserHeader />
-        <Button onClick={() => setOpen(!open)}>
-          show
-        </Button>
+      <Box sx={{
+        ml:36,
+        '@media (max-width: 600px)' :{
+          ml:0,
+          width:'100%',
+        }
+      }}
+      // ml={36}
+      >
+        <UserHeader open={open} setOpen={setOpen} />
         <Box display="flex">
           <UserDashboardMainContent />
           <Box display="flex" flexDirection="column">
