@@ -147,7 +147,8 @@ const AddTask = ({handleClose}) => {
             gap:2,
             '&:hover':{
                 backgroundColor:"#1272A5"
-            }
+            },
+            marginBottom:2
           }}>
             <img src={addIcon} width={20} alt="add" />
             Add Task

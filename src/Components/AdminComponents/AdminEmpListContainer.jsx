@@ -21,7 +21,9 @@ const AdminEmpListContainer = () => {
                 {`Employes List (${count})`}
             </Typography>
             <Divider />
-            <Box width="100%" p={2} >
+            <Box width="100%" p={2} overflowY="auto">
+                <EmpListCard />
+                <EmpListCard />
                 <EmpListCard />
                 <EmpListCard />
                 <EmpListCard />

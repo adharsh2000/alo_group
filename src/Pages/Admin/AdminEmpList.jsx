@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Grid, Typography, useTheme } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import AdminEmpListContainer from "../../Components/AdminComponents/AdminEmpListContainer";
-
+import { Link } from "react-router-dom";
 
 const AdminEmpList = () => {
   const theme = useTheme();
@@ -59,7 +59,12 @@ const AdminEmpList = () => {
                 padding: "10px 50px",
               }}
             >
-              List
+              <Link
+                to="/admin/emplist"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                List
+              </Link>
             </Button>
             <Button
               sx={{
@@ -68,7 +73,12 @@ const AdminEmpList = () => {
                 padding: "10px 50px",
               }}
             >
-              Task
+              <Link
+                to="/admin/tasklist"
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                Task
+              </Link>
             </Button>
           </Box>
         </Grid>
@@ -83,23 +93,26 @@ const AdminEmpList = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <Button startIcon={<AddIcon />} 
-          sx={{
-            backgroundColor: bgcolor,
-            color: "#fff",
-            "&:hover": {
+          <Button
+            startIcon={<AddIcon />}
+            sx={{
               backgroundColor: bgcolor,
-            },
-            "&:focus": {
-              backgroundColor: bgcolor,
-            },
-            padding: "10px 50px",
-            whiteSpace:'nowrap'
-        }}
-          >Add Employee</Button>
+              color: "#fff",
+              "&:hover": {
+                backgroundColor: bgcolor,
+              },
+              "&:focus": {
+                backgroundColor: bgcolor,
+              },
+              padding: "10px 50px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            Add Employee
+          </Button>
         </Grid>
       </Grid>
-        <AdminEmpListContainer />
+      <AdminEmpListContainer />
     </>
   );
 };
