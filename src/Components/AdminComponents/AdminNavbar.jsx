@@ -1,15 +1,23 @@
 import React from 'react'
-import { Avatar, Box, Divider, List, ListItem, ListItemAvatar, ListItemText,  useTheme } from '@mui/material'
+import { Avatar, Box, Divider, Drawer, List, ListItem, ListItemAvatar, ListItemText,  styled,  useTheme } from '@mui/material'
 import CompanyLogo from "../../Icons/CompanyIcon.svg";
 import { adminHeaderData } from '../../data/adminNavbar';
 import { Link } from 'react-router-dom';
 
-const AdminNavbar = () => {
+const Nav = styled(Box)(({ theme }) => ({
+  [theme.breakpoints.down("sm")]: {
+    display: "none",
+  },
+}));
+
+const AdminNavbar = ({open,setOpen}) => {
   const theme = useTheme();
   // const bgColor = theme?.palette?.background?.paper;
   const textColor = theme?.palette?.primary?.main;
-  return (
-    <Box sx={{
+
+  const adminNav = () => {
+    return (
+      <Box sx={{
         width:'100%',
         height:'100vh',
         backgroundColor: '#fff',
@@ -68,7 +76,30 @@ const AdminNavbar = () => {
           ))}
         </List>
     </Box>
-  )
+    )
+  }
+
+
+  return (
+    <React.Fragment>
+    {/* Visible in mobile view */}
+    <Nav>
+      <Drawer
+        anchor="left"
+        open={open}
+        variant="temporary"
+        onClose={() => setOpen(!open)}
+      >
+        {adminNav()}
+      </Drawer>
+    </Nav>
+
+    {/* Always visible on larger screens */}
+    <Nav>
+      {adminNav()}
+    </Nav>
+  </React.Fragment>
+  );
 }
 
 export default AdminNavbar

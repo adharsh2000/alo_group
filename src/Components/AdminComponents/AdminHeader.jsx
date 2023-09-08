@@ -1,10 +1,19 @@
 import React from "react";
-import { Box, IconButton, InputBase, Typography } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  InputBase,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import CreateMail from "../../Icons/AdminIcons/CreateMail.svg";
 import AdminAvatar from "../../Icons/AdminIcons/AdminAvatarIcon.svg";
+import MenuIcon from "@mui/icons-material/Menu";
 
-const AdminHeader = () => {
+const AdminHeader = ({ open, setOpen }) => {
+  const theme = useTheme();
+  const textColor = theme?.palette?.primary?.main;
   return (
     <Box
       width="100%"
@@ -16,26 +25,48 @@ const AdminHeader = () => {
     >
       <Box
         bgcolor="white"
-        height="3rem"
-        width="3rem"
+        height="2.6rem"
+        width="2.6rem"
         borderRadius="10px"
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "grid", sm: "none" },
+          placeItems: "center",
         }}
       >
-        X
+        <IconButton onClick={() => setOpen(!open)}>
+          <MenuIcon
+            sx={{
+              fontSize: "25px",
+              color: textColor,
+            }}
+          />
+        </IconButton>
       </Box>
-      <Box component="form" bgcolor="white" width={300} borderRadius="15px">
+      <Box
+        component="form"
+        bgcolor="white"
+        sx={{ width: { xs: 200, sm: 300 } }}
+        // width={300}
+        borderRadius="15px"
+      >
         <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
           <SearchIcon />
         </IconButton>
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
+          sx={{ ml: 1, flex: 1, width: { xs: 130 } }}
           placeholder="Search"
           inputProps={{ "aria-label": "search" }}
         />
       </Box>
-      <Box bgcolor="white" height="3rem" width="3rem" borderRadius="10px">
+      <Box
+        bgcolor="white"
+        height="2.7rem"
+        width="2.7rem"
+        borderRadius="10px"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+      >
         <img src={CreateMail} alt="mail" />
       </Box>
       <Box
@@ -52,11 +83,7 @@ const AdminHeader = () => {
         justifyContent="space-evenly"
       >
         <Box>
-          <Typography
-            fontWeight="bold"
-            color="#1272A5"
-            fontSize="22px"
-          >
+          <Typography fontWeight="bold" color="#1272A5" fontSize="22px">
             Admin
           </Typography>
           <Typography fontSize="12px">Edit Profile</Typography>

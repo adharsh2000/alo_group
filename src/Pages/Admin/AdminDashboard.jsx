@@ -1,5 +1,5 @@
 import { Box, Grid, Stack, Typography, useTheme } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AdminNavbar from "../../Components/AdminComponents/AdminNavbar";
 import AdminHeader from "../../Components/AdminComponents/AdminHeader";
 import TaskUpdatesContainer from "../../Components/AdminComponents/TaskUpdatesContainer";
@@ -7,6 +7,7 @@ import DashboardReminderContainer from "../../Components/Common/DashboardReminde
 import CurrentProjects from "../../Components/AdminComponents/CurrentProjects";
 
 function AdminDashboard() {
+  const [open, setOpen] = useState(false);
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.default;
   return (
@@ -22,14 +23,14 @@ function AdminDashboard() {
         md={2}
         sm={2}
       >
-        <AdminNavbar />
+        <AdminNavbar open={open} setOpen={setOpen} />
       </Grid>
 
       <Grid container item xs={12} sm={10} sx={{marginLeft:{xs:0,sm:30}}}>
         <Box sx={{ width: "100%" }}>
           <Stack rowGap={1} columnGap={1}>
             <Grid item xs={12}>
-              <AdminHeader />
+              <AdminHeader open={open} setOpen={setOpen} />
             </Grid>
             <Grid container item xs={12} sm={12} p={1}>
               <Grid item xs={12}>

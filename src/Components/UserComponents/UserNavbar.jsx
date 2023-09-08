@@ -83,7 +83,6 @@ const UserNavbar = ({open,setOpen}) => {
             backgroundColor: "#000000",
           }}
         />
-
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         >

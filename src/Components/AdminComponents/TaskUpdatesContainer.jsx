@@ -49,6 +49,9 @@ const TaskUpdatesContainer = () => {
           display="flex"
           alignItems="center"
           justifyContent="space-evenly"
+          sx={{
+            mx:{xs:1,sm:''}
+          }}
         >
         
           {/* <Grid item xs={6} sm={4} md={3} p={2}>
