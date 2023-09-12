@@ -1,10 +1,14 @@
-import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, Grid, Modal, Typography } from "@mui/material";
 import addIcon from "../../Icons/AddIcon.svg";
 import Calender from "../../Icons/AdminIcons/EventCalender.svg";
 import AdminEventCard from "../../Components/AdminComponents/AdminEventCard";
+import AdminEventForm from "../../Components/Form/AdminEventForm";
 
 const AdminEvents = () => {
+  const [open,setOpen] = useState(false);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Box
@@ -37,6 +41,7 @@ const AdminEvents = () => {
               backgroundColor: "#1272A5",
             },
           }}
+          onClick={() => setOpen(!open)}
         >
           <img src={addIcon} width={20} alt="add" />
           Add Events
@@ -67,6 +72,29 @@ const AdminEvents = () => {
         </Grid>
       </Grid>
       </Box>
+
+      {/* event modal  */}
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
+<Modal
+  open={open}
+  onClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+  sx={{
+    display:'flex',
+    alignItems:'center',
+    justifyContent:'center',
+}}
+>
+  <Box sx={{
+            backgroundColor:'white',
+            width:400,
+            height:500,
+            borderRadius:'20px',
+        }}>
+    <AdminEventForm open={open} setOpen={setOpen} />
+  </Box>
+</Modal>
     </>
   );
 };
