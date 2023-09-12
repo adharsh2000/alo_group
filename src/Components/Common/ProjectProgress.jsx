@@ -8,9 +8,9 @@ import { Typography } from "@mui/material";
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 20,
   borderRadius: 10,
-  marginTop:8,
+  marginTop: 8,
   [`&.${linearProgressClasses.colorPrimary}`]: {
-    backgroundColor:"#ACCFE3"
+    backgroundColor: "#ACCFE3",
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 10,
@@ -19,12 +19,18 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const ProjectProgress = ({ value, children }) => {
+const ProjectProgress = ({ value, children, width }) => {
   return (
-    <BorderLinearProgress variant="determinate" value={value}>
+    <BorderLinearProgress
+      variant="determinate"
+      value={value}
+      sx={{
+        width: width ? width : "inherit",
+      }}
+    >
       <Typography
         sx={{
-        //   position: "absolute",
+          //   position: "absolute",
           color: "black",
           right: "50px",
         }}

@@ -16,6 +16,7 @@ import AdminLayout from "./Pages/Admin/AdminLayout";
 import AdminEmpList from "./Pages/Admin/AdminEmpList";
 import AdminTaskList from "./Pages/Admin/AdminTaskList";
 import AdminEvents from "./Pages/Admin/AdminEvents";
+import AdminProjects from "./Pages/Admin/AdminProjects";
 
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
             <Route path="emplist" element={<AdminEmpList />} />
             <Route path="tasklist" element={<AdminTaskList />} />
             <Route path="events" element={<AdminEvents />} />
+            <Route path="projects" element={<AdminProjects />} />
           </Route>
         </Routes>
       </Box>

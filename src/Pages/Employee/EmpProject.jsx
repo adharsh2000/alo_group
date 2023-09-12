@@ -5,7 +5,7 @@ import { useTheme } from "@emotion/react";
 import { Avatar, AvatarGroup, Box, Divider, Typography } from "@mui/material";
 import HeaderImage from "../../Icons/HeaderImage.svg";
 import DownloadIcon from "../../Icons/DownloadIcon.svg";
-import ProjectProgress from "../../Components/UserComponents/ProjectProgress";
+import ProjectProgress from "../../Components/Common/ProjectProgress";
 import ProjectStatusBox from "../../Components/UserComponents/ProjectStatusBox";
 
 const Empproject = () => {
