@@ -2,7 +2,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import React from "react";
 import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserHeader from "../../Components/UserComponents/UserHeader";
-import LeaveCalender from "../../Components/UserComponents/LeaveCalender";
+import LeaveCalender from "../../Components/Common/LeaveCalender";
 
 const EmpLeave = () => {
   const theme = useTheme();

@@ -18,6 +18,8 @@ import AdminTaskList from "./Pages/Admin/AdminTaskList";
 import AdminEvents from "./Pages/Admin/AdminEvents";
 import AdminProjects from "./Pages/Admin/AdminProjects";
 import AdminLeaveReq from "./Pages/Admin/AdminLeaveReq";
+import AdminEmpWorkSheetTable from "./Pages/Admin/AdminEmpWorkSheetTable";
+import AdminEmpLeaveRecords from "./Pages/Admin/AdminEmpLeaveRecords";
 
 
 function App() {
@@ -64,6 +66,8 @@ function App() {
             <Route path="events" element={<AdminEvents />} />
             <Route path="projects" element={<AdminProjects />} />
             <Route path="leaves" element={<AdminLeaveReq />} />
+            <Route path="emp/worksheet" element={<AdminEmpWorkSheetTable />} />
+            <Route path="emp/leaverecordes" element={<AdminEmpLeaveRecords />} />
           </Route>
         </Routes>
       </Box>
