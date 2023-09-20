@@ -7,6 +7,7 @@ import TimerHalf from "../../Icons/TimerHalf.svg";
 import CheckedFull from "../../Icons/ChekedFull.svg";
 import CheckedHalf from "../../Icons/CheckedHalf.svg";
 import UserTaskCard from "./UserTaskCard";
+import { Link } from "react-router-dom";
 // import DashboardDatePicker from "./DashboardDatePicker";
 
 const overviewCardData = [
@@ -46,11 +47,10 @@ const UserDashboardMainContent = () => {
       mt={1}
       width={900}
       bgcolor="#fff"
-    //   height="500px"
-    height="auto"
+      //   height="500px"
+      height="auto"
       p={1}
       borderRadius="20px"
-      
     >
       <Typography
         component="h5"
@@ -145,8 +145,17 @@ const UserDashboardMainContent = () => {
         />
       </Box>
       <Box mt={2}>
-        <table style={{width:"100%",borderCollapse: 'collapse'}} border='2px solid black'>
-          <tr style={{backgroundColor:'#1272A5',color:'#fff',padding:"10px"}}>
+        <table
+          style={{ width: "100%", borderCollapse: "collapse" }}
+          border="2px solid black"
+        >
+          <tr
+            style={{
+              backgroundColor: "#1272A5",
+              color: "#fff",
+              padding: "10px",
+            }}
+          >
             <th>Login</th>
             <th>10am-12pm</th>
             <th>12pm-1.15pm</th>
@@ -165,28 +174,52 @@ const UserDashboardMainContent = () => {
         </table>
       </Box>
       {/* active task */}
-      <Box display='flex' justifyContent="space-between" mt={4} mb={1} px={3}>
-        <Typography sx={{
-            fontSize: '20px',
-            fontWeight: 'bold',
-        }}>Active tasks</Typography>
-        <Typography color="#1272A5">View all</Typography>
+      <Box display="flex" justifyContent="space-between" mt={4} mb={1} px={3}>
+        <Typography
+          sx={{
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          Active tasks
+        </Typography>
+        <Link to="/mytasks" style={{ textDecoration: "none" }}>
+          <Typography color="#1272A5">View all</Typography>
+        </Link>
       </Box>
-      <Box display="flex" flexWrap="wrap" gap={2} alignItems="center" justifyContent="space-evenly">
-       <UserTaskCard width={400} priority={"High"}/>
-       <UserTaskCard width={400} priority={"Low"}/>
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        gap={2}
+        alignItems="center"
+        justifyContent="space-evenly"
+      >
+        <UserTaskCard width={400} priority={"High"} />
+        <UserTaskCard width={400} priority={"Low"} />
       </Box>
       {/* new task */}
-      <Box display='flex' justifyContent="space-between" mt={4} mb={1} px={3}>
-        <Typography sx={{
-            fontSize: '20px',
-            fontWeight: 'bold',
-        }}>New tasks</Typography>
-        <Typography color="#1272A5">View all</Typography>
+      <Box display="flex" justifyContent="space-between" mt={4} mb={1} px={3}>
+        <Typography
+          sx={{
+            fontSize: "20px",
+            fontWeight: "bold",
+          }}
+        >
+          New tasks
+        </Typography>
+        <Link to="/mytasks" style={{ textDecoration: "none" }}>
+          <Typography color="#1272A5">View all</Typography>
+        </Link>
       </Box>
-      <Box display="flex" flexWrap="wrap" gap={2} alignItems="center" justifyContent="space-evenly">
-       <UserTaskCard newtask={true} width={400} priority={"Medium"}/>
-       <UserTaskCard newtask={true} width={400} priority={"High"}/>
+      <Box
+        display="flex"
+        flexWrap="wrap"
+        gap={2}
+        alignItems="center"
+        justifyContent="space-evenly"
+      >
+        <UserTaskCard newtask={true} width={400} priority={"Medium"} />
+        <UserTaskCard newtask={true} width={400} priority={"High"} />
       </Box>
     </Box>
   );

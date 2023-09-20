@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useSelector } from "react-redux";
 
 const BackDropLoader = () => {
-  const {load} = useSelector((state) => state);
+  const load = useSelector((state) => state.load);
   console.log(load);
   return (
     <div>

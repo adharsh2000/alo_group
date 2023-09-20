@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DashboardMessagecontainer = () => {
   return (
@@ -22,13 +23,15 @@ const DashboardMessagecontainer = () => {
     >
       <Box display="flex" justifyContent="space-around" mt={1}>
         <Typography>Recent Messages</Typography>
-        <Typography>View All</Typography>
+        <Link to="/messages" style={{ textDecoration: "none" }}>
+          <Typography color="#1272A5">View All</Typography>
+        </Link>
       </Box>
       <Box>
         <List
           sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
         >
-            {/*  */}
+          {/*  */}
           <ListItem
             sx={{
               display: "flex",
@@ -126,7 +129,6 @@ const DashboardMessagecontainer = () => {
             </Box>
           </ListItem>
           <Divider />
-          
         </List>
       </Box>
     </Box>

@@ -4,6 +4,7 @@ import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import UserHeader from "../../Components/UserComponents/UserHeader";
 import LeftArrowIcon from "../../Icons/LeftArrowIcon.svg";
 import UserMailCard from "../../Components/UserComponents/UserMailCard";
+import { Link } from "react-router-dom";
 
 const EmpAllMail = () => {
   const theme = useTheme();
@@ -32,10 +33,17 @@ const EmpAllMail = () => {
             height={50}
             pl={1}
           >
-            <img src={LeftArrowIcon} alt="back" width={25} />
-            <Typography fontWeight="bold" fontSize="20px">
-              All Mails
-            </Typography>
+            <Link to="/mailing" style={{
+              textDecoration:'none',
+              display:'flex',
+              alignItems:'center',
+              color:'inherit'
+            }}>
+              <img src={LeftArrowIcon} alt="back" width={25} />
+              <Typography fontWeight="bold" fontSize="20px">
+                All Mails
+              </Typography>
+            </Link>
           </Box>
           <Box width="95%" display="flex" gap={2} mx="auto" height={540}>
             <Box
@@ -61,7 +69,9 @@ const EmpAllMail = () => {
               <UserMailCard value={"Declined"} />
             </Box>
             <Box flex={2.5} border="1px solid #000" borderRadius="20px">
-              <Typography textAlign="end" p={2}>jul 06, 2023</Typography>
+              <Typography textAlign="end" p={2}>
+                jul 06, 2023
+              </Typography>
               <Divider />
               <UserMailCard height={500} value={"Accepted"} />
             </Box>

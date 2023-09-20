@@ -10,7 +10,7 @@ import React from "react";
 import FormClose from "../../Icons/FormClose.svg";
 import addIcon from "../../Icons/AddIcon.svg";
 
-const AddTask = ({handleClose}) => {
+const AddTask = ({ handleClose, admin }) => {
   return (
     <Box display="flex" flexDirection="column" height="100%">
       {/* form Header */}
@@ -18,20 +18,22 @@ const AddTask = ({handleClose}) => {
         <Typography flex={5} variant="h6" textAlign="center">
           Add Task
         </Typography>
-        <Box flex={0.5} mr={1}>
-          <Box
-            component="button"
-            sx={{
-              width: 20,
-              backgroundColor: "inherit",
-              border: "none",
-              cursor: "pointer",
-            }}
-            onClick={handleClose}
-          >
-            <img src={FormClose} width={30} alt="close" />
+        {!admin && (
+          <Box flex={0.5} mr={1}>
+            <Box
+              component="button"
+              sx={{
+                width: 20,
+                backgroundColor: "inherit",
+                border: "none",
+                cursor: "pointer",
+              }}
+              onClick={handleClose}
+            >
+              <img src={FormClose} width={30} alt="close" />
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
       {/* form content */}
       <Box
@@ -42,6 +44,27 @@ const AddTask = ({handleClose}) => {
         flexDirection="column"
         component="form"
       >
+        {admin && (
+          <Box width={200} mt={2}>
+            <Typography fontSize="14px" fontWeight="bold" marginBottom="8px">
+              Employee Name
+            </Typography>
+            <select
+              name="name"
+              id="name"
+              style={{
+                width: "100%",
+                height: 30,
+                borderRadius: "10px",
+                paddingLeft: 4,
+              }}
+            >
+              <option value="lorem ipsum">lorem ipsum</option>
+              <option value="lorem ipsum">lorem ipsum</option>
+              <option value="lorem ipsum">lorem ipsum</option>
+            </select>
+          </Box>
+        )}
         <Box width={200} mt={2}>
           <Typography fontSize="14px" fontWeight="bold" marginBottom="8px">
             Assigning Date
@@ -140,16 +163,25 @@ const AddTask = ({handleClose}) => {
             />
           </RadioGroup>
         </Box>
-        <Box width={200} mt={1} display="flex" alignItems="center" justifyContent="center">
-          <Button type="submit" sx={{
-            backgroundColor:'#1272A5',
-            color:'#fff',
-            gap:2,
-            '&:hover':{
-                backgroundColor:"#1272A5"
-            },
-            marginBottom:2
-          }}>
+        <Box
+          width={200}
+          mt={1}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Button
+            type="submit"
+            sx={{
+              backgroundColor: "#1272A5",
+              color: "#fff",
+              gap: 2,
+              "&:hover": {
+                backgroundColor: "#1272A5",
+              },
+              marginBottom: 2,
+            }}
+          >
             <img src={addIcon} width={20} alt="add" />
             Add Task
           </Button>

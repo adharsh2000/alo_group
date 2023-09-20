@@ -51,7 +51,7 @@ const AdminLeaveReq = () => {
           </select>
         </Box>
       </Box>
-      <Box bgcolor="#fff">
+      <Box bgcolor="#fff" borderRadius="10px">
         <Grid container xs={12} sm={12}>
           <Grid
             item

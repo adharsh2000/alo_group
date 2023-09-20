@@ -30,27 +30,28 @@ const Form = ({ admin }) => {
 
   const [formData, setFormData] = useState(initialState);
   const { email, password } = formData;
-  const  {error}  = useSelector((state) => state);
+  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const check = valid(formData);
     if (check.errLength > 0) {
       dispatch(setError(check.errMsg));
-      // console.log(check.errMsg);
       return;
     }
     dispatch(clearError());
-    // api call
 
-    setFormData(initialState);
     dispatch(setLoad());
-    navigate("/dashboard")
-    dispatch(clearLoad())
+    if (initialState.type === "admin") {
+      // api call
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/dashboard");
+    }
+    setFormData(initialState);
+    dispatch(clearLoad());
   };
 
   const handleChangeInput = (e) => {
@@ -78,44 +79,8 @@ const Form = ({ admin }) => {
             p: 3,
           }}
         >
-          {/* <Box component="form">
-            <ButtonGroup
-              disableElevation
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              variant="contained"
-              aria-label="Disabled elevation buttons"
-              sx={{
-                mt:4,
-              }}
-            >
-              <Button sx={{ width: "200px",p:2 }}>One</Button>
-              <Button sx={{ width: "200px",p:2 }}>Two</Button>
-            </ButtonGroup>
-
-            <Typography component='h6' variant="body1" sx={{
-                fontSize:13
-            }}>Email Address</Typography>
-
-            <FormField type={"email"} placeHolder={"Your Email Address"}/>
-            <FormField type={"password"} placeHolder={"*********"}/>
-          </Box> */}
           <Box component="form" noValidate onSubmit={handleSubmit}>
             <Grid container>
-              {/* <ButtonGroup
-                disableElevation
-                display="flex"
-                flexDirection="column"
-                alignItems="center"
-                variant="contained"
-                aria-label="Disabled elevation buttons"
-                sx={{
-                  mt: 4,
-                  mx: `3px`,
-                  width: "100%",
-                }}
-              > */}
               <Box display="flex" width="100%">
                 <Link to="/" style={{ textDecoration: "none", width: "100%" }}>
                   <Box
@@ -136,7 +101,7 @@ const Form = ({ admin }) => {
                           backgroundColor: admin ? "#D9D9D9" : bgColor,
                         },
                       }}
-                      onClick={()=>dispatch(clearError())}
+                      onClick={() => dispatch(clearError())}
                     >
                       User
                     </Button>
@@ -160,13 +125,12 @@ const Form = ({ admin }) => {
                           backgroundColor: admin ? bgColor : "#D9D9D9",
                         },
                       }}
-                      onClick={()=>dispatch(clearError())}
+                      onClick={() => dispatch(clearError())}
                     >
                       Admin
                     </Button>
                   </Box>
                 </Link>
-                {/* </ButtonGroup> */}
               </Box>
 
               <Grid item xs={12}>
@@ -214,8 +178,8 @@ const Form = ({ admin }) => {
               </Grid>
               <Grid item xs={12} display="flex" alignSelf="center">
                 <Checkbox
-                  // checked={checked}
-                  // onChange={handleChange}
+                  // checked={rememberMe}
+                  // onChange={handleRememberMeChange}
                   inputProps={{ "aria-label": "controlled" }}
                   sx={{
                     p: 0,

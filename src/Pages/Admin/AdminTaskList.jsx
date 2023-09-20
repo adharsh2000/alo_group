@@ -54,7 +54,7 @@ const AdminTaskList = () => {
     //             <Box display="flex" bgcolor="white" borderRadius="10px">
     //               <Button
     //                 sx={{
-    //                   backgroundColor: "#fff",
+    //                   backgroundColor: "#123456",
     //                   color: bgcolor,
     //                   padding: "10px 50px",
     //                 }}
@@ -204,7 +204,9 @@ const AdminTaskList = () => {
             mt={1}
             borderRadius="10px"
           >
-            <Typography fontWeight="bold" fontSize="20px" ml={1}>All Tasks</Typography>
+            <Typography fontWeight="bold" fontSize="20px" ml={1}>
+              All Tasks
+            </Typography>
             <Box display="flex" alignItems="center">
               <Box
                 display="flex"
@@ -265,11 +267,10 @@ const AdminTaskList = () => {
             <EmpListCard task={true} />
             <EmpListCard task={true} />
             <EmpListCard task={true} />
-            
           </Box>
         </Box>
         <Box width="30%" bgcolor="#fff" borderRadius="10px">
-          <AddTask />
+          <AddTask admin={true} />
         </Box>
       </Grid>
     </>

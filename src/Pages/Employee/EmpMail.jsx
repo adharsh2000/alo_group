@@ -57,8 +57,8 @@ const EmpMail = () => {
                   textDecoration: "none",
                   color: "inherit",
                   display: "flex",
+                  gap:8
                 }}
-                
               >
                 <img src={MailIcon} alt="mail" width={30}  />
                 <Typography
