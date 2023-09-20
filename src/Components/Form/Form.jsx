@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import valid from "../../utils/validation";
 import { clearError, setError } from "../../Store/Slices/errorSlice";
 import { clearLoad, setLoad } from "../../Store/Slices/loadingSlice";
+import { getCookie, removeCookie, setCookie } from "../../utils/cookieHelper";
 
 const Form = ({ admin }) => {
   const theme = useTheme();
@@ -29,10 +30,37 @@ const Form = ({ admin }) => {
   };
 
   const [formData, setFormData] = useState(initialState);
+  const [rememberMe, setRememberMe] = useState(false);
   const { email, password } = formData;
   const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleRememberMeChange = (e) => {
+    const isChecked = e.target.checked;
+    setRememberMe(isChecked);
+  };
+
+  useEffect(() => {
+    const savedEmail = getCookie("email");
+    const savedPassword = getCookie("password");
+    const savedRememberMe = getCookie("rememberMe");
+
+    if (savedRememberMe === "true" && savedEmail) {
+      setFormData({
+        ...formData,
+        email: savedEmail,
+        password: savedPassword,
+      });
+      setRememberMe(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -43,6 +71,16 @@ const Form = ({ admin }) => {
     }
     dispatch(clearError());
 
+    if (rememberMe) {
+      setCookie("email", email, { expires: 30 });//days
+      setCookie("password", password, { expires: 30 });
+      setCookie("rememberMe", "true", { expires: 30 });
+    } else {
+      removeCookie("email");
+      removeCookie("password");
+      removeCookie("rememberMe");
+    }
+
     dispatch(setLoad());
     if (initialState.type === "admin") {
       // api call
@@ -52,11 +90,6 @@ const Form = ({ admin }) => {
     }
     setFormData(initialState);
     dispatch(clearLoad());
-  };
-
-  const handleChangeInput = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
   };
 
   return (
@@ -178,8 +211,8 @@ const Form = ({ admin }) => {
               </Grid>
               <Grid item xs={12} display="flex" alignSelf="center">
                 <Checkbox
-                  // checked={rememberMe}
-                  // onChange={handleRememberMeChange}
+                  checked={rememberMe}
+                  onChange={handleRememberMeChange}
                   inputProps={{ "aria-label": "controlled" }}
                   sx={{
                     p: 0,
