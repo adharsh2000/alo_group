@@ -1,4 +1,4 @@
-const valid = ({fullname, username, email, password, cf_password}) => {
+const valid = ({ email, password}) => {
     const err = {}
     
     if(!email) {

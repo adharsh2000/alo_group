@@ -5,7 +5,7 @@ import IconButton from '@mui/material/IconButton';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
-const FormField = ({ type, placeHolder }) => {
+const FormField = ({ type, placeHolder,value,onChange,error,helperText }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => {
@@ -18,7 +18,7 @@ const FormField = ({ type, placeHolder }) => {
 
   return (
     <TextField
-      id="outlined-basic"
+      id={type}
       type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
       placeholder={placeHolder}
       variant="outlined"
@@ -50,6 +50,10 @@ const FormField = ({ type, placeHolder }) => {
             }
           : {}
       }
+      value={value}
+      onChange={onChange}
+      error={error}
+      helperText={error}
     />
   );
 };

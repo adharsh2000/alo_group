@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -12,12 +12,52 @@ import {
 // import LoginImage from "../../Images/LoginImage.svg";
 import FormField from "../../Components/Inputs/FormField";
 import { useTheme } from "@emotion/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import valid from "../../utils/validation";
+import { clearError, setError } from "../../Store/Slices/errorSlice";
+import { clearLoad, setLoad } from "../../Store/Slices/loadingSlice";
 
 const Form = ({ admin }) => {
   const theme = useTheme();
   const bgColor = theme?.palette?.primary?.main;
-  console.log(admin);
+
+  const initialState = {
+    email: "",
+    password: "",
+    type: admin ? "admin" : "emp",
+  };
+
+  const [formData, setFormData] = useState(initialState);
+  const { email, password } = formData;
+  const  {error}  = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const check = valid(formData);
+    if (check.errLength > 0) {
+      dispatch(setError(check.errMsg));
+      // console.log(check.errMsg);
+      return;
+    }
+    dispatch(clearError());
+    // api call
+
+    setFormData(initialState);
+    dispatch(setLoad());
+    navigate("/dashboard")
+    dispatch(clearLoad())
+  };
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
     <>
       <Box
@@ -61,7 +101,7 @@ const Form = ({ admin }) => {
             <FormField type={"email"} placeHolder={"Your Email Address"}/>
             <FormField type={"password"} placeHolder={"*********"}/>
           </Box> */}
-          <Box component="form" noValidate>
+          <Box component="form" noValidate onSubmit={handleSubmit}>
             <Grid container>
               {/* <ButtonGroup
                 disableElevation
@@ -78,9 +118,11 @@ const Form = ({ admin }) => {
               > */}
               <Box display="flex" width="100%">
                 <Link to="/" style={{ textDecoration: "none", width: "100%" }}>
-                  <Box sx={{
-                    borderRadius: `20px, 50px`,
-                  }}>
+                  <Box
+                    sx={{
+                      borderRadius: `20px, 50px`,
+                    }}
+                  >
                     <Button
                       sx={{
                         width: "100%",
@@ -94,6 +136,7 @@ const Form = ({ admin }) => {
                           backgroundColor: admin ? "#D9D9D9" : bgColor,
                         },
                       }}
+                      onClick={()=>dispatch(clearError())}
                     >
                       User
                     </Button>
@@ -117,12 +160,13 @@ const Form = ({ admin }) => {
                           backgroundColor: admin ? bgColor : "#D9D9D9",
                         },
                       }}
+                      onClick={()=>dispatch(clearError())}
                     >
                       Admin
                     </Button>
                   </Box>
                 </Link>
-              {/* </ButtonGroup> */}
+                {/* </ButtonGroup> */}
               </Box>
 
               <Grid item xs={12}>
@@ -138,7 +182,13 @@ const Form = ({ admin }) => {
                 >
                   Email Address
                 </Typography>
-                <FormField type={"email"} placeHolder={"Your Email Address"} />
+                <FormField
+                  type={"email"}
+                  placeHolder={"Your Email Address"}
+                  value={email}
+                  onChange={handleChangeInput}
+                  error={error.errorMessage && error.errorMessage.email}
+                />
               </Grid>
               <Grid item xs={12}>
                 <Typography
@@ -154,7 +204,13 @@ const Form = ({ admin }) => {
                 >
                   Password
                 </Typography>
-                <FormField type={"password"} placeHolder={"*********"} />
+                <FormField
+                  type={"password"}
+                  placeHolder={"*********"}
+                  value={password}
+                  onChange={handleChangeInput}
+                  error={error.errorMessage && error.errorMessage.password}
+                />
               </Grid>
               <Grid item xs={12} display="flex" alignSelf="center">
                 <Checkbox
@@ -199,6 +255,7 @@ const Form = ({ admin }) => {
                       backgroundColor: bgColor,
                     },
                   }}
+                  type="submit"
                 >
                   Login
                 </Button>
