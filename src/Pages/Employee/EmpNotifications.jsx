@@ -16,13 +16,14 @@ const EmpNotifications = () => {
     //     <UserHeader />
     <Box
       width="97%"
-      height={600}
+      // height={600}
       bgcolor="#fff"
       ml={1}
       mt={1}
       borderRadius="20px"
       sx={{
-        maxHeight: 600,
+        height: { xs: 800, md: 600 },
+        maxHeight: { xs: 800, md: 600 },
         overflowY: "auto",
         boxSizing: "border-box",
         "&::-webkit-scrollbar": {
