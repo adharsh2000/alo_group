@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 
-const UserMailCard = ({ value,height }) => {
+const UserMailCard = ({ value,height,handleOpen }) => {
   const theme = useTheme();
   const boxShadow = theme?.shape?.shadow;
 
@@ -18,13 +18,15 @@ const UserMailCard = ({ value,height }) => {
   return (
     <Box
       width="100%"
-      height={height ? height : 150}
+      height={height ? height : "auto"}
+      pb={2}
       sx={!height && {
         border:'1px solid #000',
         borderRadius:'20px',
         mb:2,
         boxShadow:boxShadow
       }}
+      onClick={handleOpen}
     //   border="1px solid #000"
     //   borderRadius="20px"
     //   mb={2}

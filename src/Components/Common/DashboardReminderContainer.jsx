@@ -4,7 +4,7 @@ import ReminderIcon from "../../Icons/Reminder.svg";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
 
-const DashboardReminderContainer = ({ height }) => {
+const DashboardReminderContainer = ({ height, admin }) => {
   return (
     <Box
       // ml={!height && 2}
@@ -20,7 +20,7 @@ const DashboardReminderContainer = ({ height }) => {
       pb={2}
       sx={{
         width: { xs: "96%", md: height ? "99%" : 300 },
-        ml:{xs:1,md:!height && 2}
+        ml: { xs: 1, md: !height && 2 },
       }}
     >
       <Box
@@ -105,30 +105,31 @@ const DashboardReminderContainer = ({ height }) => {
         </Box>
         {/* remind end */}
       </Box>
-
-      <Link
-        to="/admin/events"
-        style={{
-          textDecoration: "none",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Button
-          startIcon={<AddIcon />}
-          sx={{
-            backgroundColor: "#1272A5",
-            color: "#fff",
-            width: 200,
-
-            "&:hover": {
-              backgroundColor: "#1272A5",
-            },
+      {admin && (
+        <Link
+          to="/admin/events"
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          Add Reminder
-        </Button>
-      </Link>
+          <Button
+            startIcon={<AddIcon />}
+            sx={{
+              backgroundColor: "#1272A5",
+              color: "#fff",
+              width: 200,
+
+              "&:hover": {
+                backgroundColor: "#1272A5",
+              },
+            }}
+          >
+            Add Reminder
+          </Button>
+        </Link>
+      )}
     </Box>
   );
 };
