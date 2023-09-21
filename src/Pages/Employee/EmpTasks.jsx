@@ -27,16 +27,16 @@ const EmpTasks = () => {
       <>
         <Box display="flex">
           <Box
-            width="98%"
+            width="100%"
             mt={1}
             // ml={1}
-            height={800}
+            // height={800}
             bgcolor={paper}
             borderRadius="20px"
             overflow="hidden"
-            // sx={{
-            //   ml:{xs:0,md:6}
-            // }}
+            sx={{
+              height:{xs:"auto",md:800}
+            }}
           >
             <Typography fontWeight="bold" fontSize="large" pt={2} pl={4}>
               My tasks
@@ -44,9 +44,13 @@ const EmpTasks = () => {
             <Box
               display="flex"
               justifyContent="space-between"
+              alignItems="center"
               p={2}
               width="100%"
               gap={1}
+              sx={{
+                flexDirection:{xs:"column",md:"row"}
+              }}
             >
               <Box
                 width={350}
@@ -171,8 +175,8 @@ const EmpTasks = () => {
         ariaLabel="SpeedDial basic example"
         sx={{
           position: "fixed",
-          bottom: 16,
-          right: 16,
+          bottom: {xs:20,md:16},
+          right: {xs:20,md:16},
           boxShadow: "none",
           transform: "none",
           borderRadius: "50%",
