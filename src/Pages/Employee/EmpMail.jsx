@@ -24,13 +24,16 @@ const EmpMail = () => {
           gap={2}
           justifyContent="space-evenly"
           px={2}
-          pr={3}
+          // pr={3}
           my={2}
           height={"85vh"}
           // sx={{
           //   ml:{xs:0,md:5}
           // }}
           // width="100%"
+          sx={{
+            flexDirection:{xs:"column-reverse",md:"row"}
+          }}
         >
           <Box bgcolor={paper} flex={3} borderRadius="20px">
             <EmpMailForm />
@@ -40,7 +43,11 @@ const EmpMail = () => {
             flex={1}
             display="flex"
             justifyContent="center"
+            // alignItems="center"
             borderRadius="20px"
+            sx={{
+              alignItems:{xs:"center",md:"flex-start"}
+            }}
           >
             <Box
               border="1px solid #000"
@@ -50,10 +57,13 @@ const EmpMail = () => {
               alignItems="center"
               justifyContent="center"
               gap={2}
-              mt={2}
+              // mt={2}
               boxShadow={boxShadow}
               borderRadius="10px"
               textAlign="center"
+              sx={{
+                mt:{xs:0,md:2}
+              }}
             >
               <Link
                 to={"/allmails"}

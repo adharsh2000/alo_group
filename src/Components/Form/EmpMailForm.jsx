@@ -7,7 +7,14 @@ const EmpMailForm = () => {
   const mainColor = theme?.palette?.primary?.main;
 
   return (
-    <Box component="form" width="94%" mx={3} my={2}>
+    <Box
+      component="form"
+      mx={3}
+      my={2}
+      sx={{
+        width: { xs: "90%", md: "94%" },
+      }}
+    >
       <Box display="flex" justifyContent="space-between">
         <Typography fontWeight="bold" fontSize="22px">
           Mailing
@@ -23,7 +30,7 @@ const EmpMailForm = () => {
           border="none"
           borderRadius="10px"
           sx={{
-            cursor:'pointer',
+            cursor: "pointer",
           }}
         >
           <img src={SendIcon} alt="send" width={25} />
