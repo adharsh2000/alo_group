@@ -28,6 +28,7 @@ const EmpLeave = () => {
           // sx={{
           //   ml:{xs:0,md:6}
           // }}
+          mx="auto"
         >
           <Box
             width="100%"
