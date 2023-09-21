@@ -9,6 +9,7 @@ import CheckedHalf from "../../Icons/CheckedHalf.svg";
 import UserTaskCard from "./UserTaskCard";
 import { Link } from "react-router-dom";
 // import DashboardDatePicker from "./DashboardDatePicker";
+import "../../Styles/EmpDashboardTable.css";
 
 const overviewCardData = [
   {
@@ -45,12 +46,15 @@ const UserDashboardMainContent = () => {
     <Box
       ml={1}
       mt={1}
-      width={900}
+      // width={900}
       bgcolor="#fff"
       //   height="500px"
       height="auto"
       p={1}
       borderRadius="20px"
+      sx={{
+        width: { xs: "97%", md: 900 },
+      }}
     >
       <Typography
         component="h5"
@@ -70,15 +74,24 @@ const UserDashboardMainContent = () => {
         justifyContent="space-between"
         px={4}
         mt={2}
+        sx={{
+          flexDirection: { xs: "column", md: "row" },
+          height: { xs: "auto" },
+          px: { xs: 0, md: 4 },
+          gap: { xs: 3, md: 0 },
+        }}
       >
         {overviewCardData?.map((data) => (
           <Box
-            width={200}
+            // width={200}
             height="100%"
             borderRadius="20px"
             bgcolor={data.backGroundColor}
             overflow="hidden"
             border="1px solid black"
+            sx={{
+              width: { xs: "100%", md: 200 },
+            }}
           >
             <Box display="flex" alignItems="center" px={3} height="50%">
               <img src={data.smallIcon} alt="icon" />
@@ -93,10 +106,12 @@ const UserDashboardMainContent = () => {
               height="50%"
             >
               <Typography
-                mr={3}
+                // mr={3}
                 sx={{
                   fontWeight: "bold",
                   fontSize: "30px",
+                  textAlign: "center",
+                  mr: { xs: 14, md: 3 },
                 }}
               >
                 {data.count}
@@ -146,7 +161,10 @@ const UserDashboardMainContent = () => {
       </Box>
       <Box mt={2}>
         <table
-          style={{ width: "100%", borderCollapse: "collapse" }}
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+          }}
           border="2px solid black"
         >
           <tr
@@ -163,7 +181,11 @@ const UserDashboardMainContent = () => {
             <th>4pm-7pm</th>
             <th>Logout</th>
           </tr>
-          <tr>
+          <tr
+            style={{
+              padding: "10px",
+            }}
+          >
             <td>10.00 am</td>
             <td>lorem ipsum</td>
             <td>lorem ipsum</td>

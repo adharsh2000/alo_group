@@ -7,34 +7,21 @@ import DashboardMessagecontainer from "../../Components/UserComponents/Dashboard
 import DashboardReminderContainer from "../../Components/Common/DashboardReminderContainer";
 
 const EmpDashboard = () => {
-  const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
-  const [open,setOpen] = useState(false)
+  // const theme = useTheme();
+  // const bgColor = theme?.palette?.background?.default;
+  // const [open,setOpen] = useState(false)
 
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar open={open} setOpen={setOpen} />
-      </Box>
-      <Box sx={{
-        ml:36,
-        '@media (max-width: 600px)' :{
-          ml:0,
-          width:'100%',
-        }
-      }}
-      // ml={36}
-      >
-        <UserHeader open={open} setOpen={setOpen} />
-        <Box display="flex">
+        <Box display="flex" sx={{
+          flexDirection:{xs:"column",md:"row"}
+        }}>
           <UserDashboardMainContent />
           <Box display="flex" flexDirection="column">
             <DashboardMessagecontainer />
             <DashboardReminderContainer />
           </Box>
         </Box>
-      </Box>
-    </Box>
+      
   );
 };
 

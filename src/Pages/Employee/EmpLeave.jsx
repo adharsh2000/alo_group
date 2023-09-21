@@ -8,16 +8,16 @@ const EmpLeave = () => {
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.default;
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
+    // <Box width="100%" bgcolor={bgColor} display="flex">
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+    //   <Box ml={36}>
+    //     <UserHeader />
         <Box
           width="97%"
           bgcolor="#fff"
-          ml={1}
+          // ml={1}
           height={600}
           mt={2}
           borderRadius="20px"
@@ -25,6 +25,9 @@ const EmpLeave = () => {
           //   alignItems='center'
           //   flexDirection="column"
           overflow="hidden"
+          // sx={{
+          //   ml:{xs:0,md:6}
+          // }}
         >
           <Box
             width="100%"
@@ -55,8 +58,8 @@ const EmpLeave = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
-    </Box>
+    //   </Box>
+    // </Box>
   );
 };
 

@@ -1,28 +1,30 @@
 import React from "react";
 import { Box, Divider, TextField, Typography, useTheme } from "@mui/material";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
-import UserHeader from "../../Components/UserComponents/UserHeader";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
 import UserChatCard from "../../Components/UserComponents/UserChatCard";
 
 const EmpMessages = () => {
   const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const bgColor = theme?.palette?.background?.default;
   const boxShadow = theme?.shape?.shadow;
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
+    // <Box width="100%" bgcolor={bgColor} display="flex">
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+    //   <Box ml={36}>
+    //     <UserHeader />
         <Box
           width="97%"
           height={600}
           bgcolor="#fff"
-          ml={1}
+          // ml={1}
           mt={1}
           borderRadius="20px"
-          
+          // sx={{
+          //   ml:{xs:0,md:6}
+          // }}
         >
           <Typography fontWeight="bold" fontSize="22px" py={2} pl={4}>
             Messages
@@ -59,8 +61,8 @@ const EmpMessages = () => {
             }}/>
           </Box>
         </Box>
-      </Box>
-    </Box>
+    //   </Box>
+    // </Box>
   );
 };
 

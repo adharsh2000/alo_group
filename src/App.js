@@ -20,6 +20,7 @@ import AdminProjects from "./Pages/Admin/AdminProjects";
 import AdminLeaveReq from "./Pages/Admin/AdminLeaveReq";
 import AdminEmpWorkSheetTable from "./Pages/Admin/AdminEmpWorkSheetTable";
 import AdminEmpLeaveRecords from "./Pages/Admin/AdminEmpLeaveRecords";
+import EmpLayout from "./Pages/Employee/EmpLayout";
 
 
 function App() {
@@ -33,14 +34,22 @@ function App() {
         <Routes>
           {/* employee */}
           <Route path="/" element={<EmployeeLogin />} />
-          <Route path="/dashboard" element={<EmpDashboard />} />
-          <Route path="/projects" element={<EmpProject />} />
-          <Route path="/mytasks" element={<EmpTasks />} />
-          <Route path="/mailing" element={<EmpMail />} />
-          <Route path="/allmails" element={<EmpAllMail />} />
-          <Route path="/notifications" element={<EmpNotifications />} />
-          <Route path="/messages" element={<EmpMessages />} />
-          <Route path="/leaverecords" element={<EmpLeave />} />
+          <Route path="/*"
+            element={
+              <EmpLayout>
+                <Outlet />
+              </EmpLayout>
+            }
+          >
+            <Route path="dashboard" element={<EmpDashboard />} />
+            <Route path="projects" element={<EmpProject />} />
+            <Route path="mytasks" element={<EmpTasks />} />
+            <Route path="mailing" element={<EmpMail />} />
+            <Route path="allmails" element={<EmpAllMail />} />
+            <Route path="notifications" element={<EmpNotifications />} />
+            <Route path="messages" element={<EmpMessages />} />
+            <Route path="leaverecords" element={<EmpLeave />} />
+          </Route>
 
           {/* admin */}
           {/* <Route element={<AdminLayout></AdminLayout>} >

@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const DashboardReminderContainer = ({ height }) => {
   return (
     <Box
-      ml={!height && 2}
+      // ml={!height && 2}
       mt={!height && 2}
-      width={height ? "99%" : 300}
+      // width={height ? "99%" : 300}
       height={height ? height : 350}
       bgcolor="#fff"
       borderRadius="20px"
@@ -18,6 +18,10 @@ const DashboardReminderContainer = ({ height }) => {
       justifyContent="space-between"
       // alignItems="center"
       pb={2}
+      sx={{
+        width: { xs: "96%", md: height ? "99%" : 300 },
+        ml:{xs:1,md:!height && 2}
+      }}
     >
       <Box
         display="flex"
@@ -102,14 +106,21 @@ const DashboardReminderContainer = ({ height }) => {
         {/* remind end */}
       </Box>
 
-      <Link to="/admin/events" style={{ textDecoration: "none",display:'flex',justifyContent:'center' }}>
+      <Link
+        to="/admin/events"
+        style={{
+          textDecoration: "none",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Button
           startIcon={<AddIcon />}
           sx={{
             backgroundColor: "#1272A5",
             color: "#fff",
             width: 200,
-            
+
             "&:hover": {
               backgroundColor: "#1272A5",
             },

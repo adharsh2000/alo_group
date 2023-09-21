@@ -1,9 +1,9 @@
 import { Box, Grid, Stack, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import AdminNavbar from "../../Components/AdminComponents/AdminNavbar";
-import AdminHeader from "../../Components/AdminComponents/AdminHeader";
+import UserNavbar from "../../Components/UserComponents/UserNavbar";
+import UserHeader from "../../Components/UserComponents/UserHeader";
 
-const AdminLayout = ({ children }) => {
+const EmpLayout = ({ children }) => {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.default;
@@ -20,7 +20,7 @@ const AdminLayout = ({ children }) => {
         md={2}
         sm={2}
       >
-        <AdminNavbar open={open} setOpen={setOpen} />
+        <UserNavbar open={open} setOpen={setOpen} />
       </Grid>
 
       <Grid
@@ -31,11 +31,11 @@ const AdminLayout = ({ children }) => {
         sx={{ marginLeft: { xs: 0, sm: 30 } }}
       >
         <Box
-        // sx={{ width: "100%" }}
+        sx={{ width: "100%" }}
         >
           <Stack rowGap={1} columnGap={1}>
             <Grid item xs={12}>
-              <AdminHeader open={open} setOpen={setOpen} />
+              <UserHeader open={open} setOpen={setOpen} />
             </Grid>
             {children}
           </Stack>
@@ -45,4 +45,4 @@ const AdminLayout = ({ children }) => {
   );
 };
 
-export default AdminLayout;
+export default EmpLayout;

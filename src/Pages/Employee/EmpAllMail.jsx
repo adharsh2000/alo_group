@@ -11,12 +11,12 @@ const EmpAllMail = () => {
   const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
+    // <Box width="100%" bgcolor={bgColor} display="flex">
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+    //   <Box ml={36}>
+    //     <UserHeader />
         <Box
           width="97%"
           mt={1}
@@ -77,8 +77,8 @@ const EmpAllMail = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
-    </Box>
+    //   </Box>
+    // </Box>
   );
 };
 

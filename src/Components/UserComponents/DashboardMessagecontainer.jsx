@@ -16,10 +16,14 @@ const DashboardMessagecontainer = () => {
     <Box
       ml={2}
       mt={1}
-      width={300}
+      // width={300}
       height={350}
       bgcolor="#fff"
       borderRadius="20px"
+      sx={{
+        width:{xs:"96%",md:300},
+        ml:{xs:1,md:2},
+      }}
     >
       <Box display="flex" justifyContent="space-around" mt={1}>
         <Typography>Recent Messages</Typography>

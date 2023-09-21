@@ -13,12 +13,12 @@ const EmpMail = () => {
   const boxShadow = theme?.shape?.shadow;
   //   const borderRadius = theme?.shape?.borderRadius;
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
+    // <Box width="100%" bgcolor={bgColor} display="flex">
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+    //   <Box ml={36}>
+    //     <UserHeader />
         <Box
           display="flex"
           gap={2}
@@ -27,6 +27,10 @@ const EmpMail = () => {
           pr={3}
           my={2}
           height={"85vh"}
+          // sx={{
+          //   ml:{xs:0,md:5}
+          // }}
+          // width="100%"
         >
           <Box bgcolor={paper} flex={3} borderRadius="20px">
             <EmpMailForm />
@@ -71,8 +75,8 @@ const EmpMail = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
-    </Box>
+    //   </Box>
+    // </Box>
   );
 };
 

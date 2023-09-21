@@ -15,20 +15,23 @@ const Empproject = () => {
   const Blue = theme?.palette?.primary?.main;
 
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex">
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
+    // <Box width="100%" bgcolor={bgColor} display="flex">
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+      // <Box ml={36}>
+      //   <UserHeader />
         <Box
-          width="97%"
+          width="100%"
           mt={1}
-          ml={1}
-          height={800}
+          // ml={1}
+          // height={800}
           bgcolor={paper}
           borderRadius="20px"
           overflow="hidden"
+          // sx={{
+          //   ml:{xs:0,md:6}
+          // }}
         >
           <Box
             sx={{
@@ -55,10 +58,14 @@ const Empproject = () => {
           </Box>
           <Box
             width="100%"
-            height={100}
+            // height={100}
             display="flex"
             alignItems="center"
             justifyContent="space-around"
+            sx={{
+              flexDirection:{xs:"column",md:"row"},
+              height:{xs:'auto',md:100},
+            }}
           >
             <Box
               display="flex"
@@ -149,7 +156,7 @@ const Empproject = () => {
               display="flex"
               flexDirection="column"
               alignItems="center"
-              gap={2}
+              // gap={1}
             >
               <Typography
                 sx={{
@@ -174,7 +181,12 @@ const Empproject = () => {
 
           <Box p={2}>
             <Typography fontWeight="bold" fontSize="large">Project Status</Typography>
-            <Box width={800}>
+            <Box
+            //  width={800}
+            sx={{
+              width:{xs:"100%",md:800}
+            }}
+            >
               <ProjectStatusBox value="Ux Research" bgcolor="#FFDEDE" />
               <ProjectStatusBox value="Ui Designing" bgcolor="#A3D8FF" />
               <ProjectStatusBox value="Backend" bgcolor="#CABDFF" />
@@ -265,8 +277,8 @@ const Empproject = () => {
         </Box>
         {/* end project documentation */}
         </Box>
-      </Box>
-    </Box>
+    //   </Box>
+    // </Box>
   );
 };
 export default Empproject;

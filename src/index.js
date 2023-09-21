@@ -8,6 +8,10 @@ import { Provider } from 'react-redux';
 import store from './Store';
 import BackDropLoader from './Components/Common/BackDropLoader';
 
+// import {configDotenv} from "dotenv"
+
+// configDotenv();
+console.log(process.env);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

@@ -18,21 +18,25 @@ const EmpTasks = () => {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box width="100%" bgcolor={bgColor} display="flex" >
-      <Box display="flex">
-        <UserNavbar />
-      </Box>
-      <Box ml={36}>
-        <UserHeader />
-        <Box display="flex" >
+    // <Box width="100%" bgcolor={bgColor} display="flex" >
+    //   <Box display="flex">
+    //     <UserNavbar />
+    //   </Box>
+    //   <Box ml={36}>
+    //     <UserHeader />
+      <>
+        <Box display="flex">
           <Box
-            width="97%"
+            width="98%"
             mt={1}
-            ml={1}
+            // ml={1}
             height={800}
             bgcolor={paper}
             borderRadius="20px"
             overflow="hidden"
+            // sx={{
+            //   ml:{xs:0,md:6}
+            // }}
           >
             <Typography fontWeight="bold" fontSize="large" pt={2} pl={4}>
               My tasks
@@ -161,7 +165,7 @@ const EmpTasks = () => {
             </Box>
           </Box>
         </Box>
-      </Box>
+      {/* </Box> */}
       <Box
         component="button"
         ariaLabel="SpeedDial basic example"
@@ -205,7 +209,8 @@ const EmpTasks = () => {
           <AddTask handleClose={handleClose}/>
         </Box>
       </Modal>
-    </Box>
+      </>
+    // </Box>
   );
 };
 

@@ -32,7 +32,8 @@ const UserNavbar = ({open,setOpen}) => {
   const navBar = () => {
     return (
       <Box
-        width={283}
+        // width={283}
+        // width="100%"
         height="100vh"
         bgcolor={bgColor}
         display="block"
@@ -42,7 +43,7 @@ const UserNavbar = ({open,setOpen}) => {
          '@media (max-width: 600px)' :{
             position:'static',
             height:"50vh",
-            width:300
+            width:250
           }
         }}
       >

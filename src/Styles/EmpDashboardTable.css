@@ -1,0 +1,30 @@
+/* For mobile screens */
+/* For mobile screens */
+@media (max-width: 600px) {
+  table {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  tr {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  th,
+  td {
+    text-align: left;
+    width: 100%; 
+    padding: 5px;
+  }
+  th {
+    font-weight: bold;
+    background-color: #1272A5;
+    color: #fff;
+  }
+}
+
+
+  
