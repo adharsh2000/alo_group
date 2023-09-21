@@ -15,25 +15,33 @@ const EmpMessages = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
+    <Box
+      width="97%"
+      // height={600}
+      bgcolor="#fff"
+      // ml={1}
+      mt={1}
+      borderRadius="20px"
+      // sx={{
+      //   ml:{xs:0,md:6}
+      // }}
+      mx="auto"
+      sx={
+        {
+          height:{xs:730,md:600}
+        }
+      }
+    >
+      <Typography fontWeight="bold" fontSize="22px" py={2} pl={4}>
+        Messages
+      </Typography>
+      <Divider />
+      <Box width="90%" mx="auto">
         <Box
-          width="97%"
-          height={600}
-          bgcolor="#fff"
-          // ml={1}
-          mt={1}
-          borderRadius="20px"
-          // sx={{
-          //   ml:{xs:0,md:6}
-          // }}
-        >
-          <Typography fontWeight="bold" fontSize="22px" py={2} pl={4}>
-            Messages
-          </Typography>
-          <Divider />
-          <Box width="90%" mx="auto">
-            <Box height={470}
-            sx={{
-            maxHeight: 470,
+          // height={470}
+          sx={{
+            height: { xs: 600, md: 470 },
+            maxHeight: { xs: 600, md: 470 },
             overflowY: "auto",
             boxSizing: "border-box",
             "&::-webkit-scrollbar": {
@@ -41,26 +49,30 @@ const EmpMessages = () => {
             },
             scrollbarWidth: "none",
           }}
-            >
-                <UserChatCard me={true}/>
-                <UserChatCard />
-                <UserChatCard />
-                <UserChatCard me={true}/>
-                <UserChatCard me={true}/>
-                <UserChatCard />
-                <UserChatCard />
-                <UserChatCard me={true}/>
-                <UserChatCard me={true}/>
-                <UserChatCard />
-                <UserChatCard />
-                <UserChatCard me={true}/>
-            </Box>
-            <TextField placeholder="Write a message" fullWidth sx={{
-                boxShadow:boxShadow,
-                borderRadius:'10px'
-            }}/>
-          </Box>
+        >
+          <UserChatCard me={true} />
+          <UserChatCard />
+          <UserChatCard />
+          <UserChatCard me={true} />
+          <UserChatCard me={true} />
+          <UserChatCard />
+          <UserChatCard />
+          <UserChatCard me={true} />
+          <UserChatCard me={true} />
+          <UserChatCard />
+          <UserChatCard />
+          <UserChatCard me={true} />
         </Box>
+        <TextField
+          placeholder="Write a message"
+          fullWidth
+          sx={{
+            boxShadow: boxShadow,
+            borderRadius: "10px",
+          }}
+        />
+      </Box>
+    </Box>
     //   </Box>
     // </Box>
   );
