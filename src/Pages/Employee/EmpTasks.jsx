@@ -206,7 +206,7 @@ const EmpTasks = () => {
       >
         <Box sx={{
             backgroundColor:'white',
-            width:400,
+            width:{xs:350,md:400},
             height:500,
             borderRadius:'20px',
         }}>
