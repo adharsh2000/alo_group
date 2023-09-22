@@ -1,6 +1,6 @@
 import React from "react";
-import UserHeader from "../../Components/UserComponents/UserHeader";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import { useTheme } from "@emotion/react";
 import { Avatar, AvatarGroup, Box, Divider, Typography } from "@mui/material";
 import HeaderImage from "../../Icons/HeaderImage.svg";
@@ -10,7 +10,7 @@ import ProjectStatusBox from "../../Components/UserComponents/ProjectStatusBox";
 
 const Empproject = () => {
   const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
   const Blue = theme?.palette?.primary?.main;
 

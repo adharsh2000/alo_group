@@ -1,14 +1,14 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
-import UserHeader from "../../Components/UserComponents/UserHeader";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
 import MailIcon from "../../Icons/MailIcon.svg";
 import EmpMailForm from "../../Components/Form/EmpMailForm";
 import { Link } from "react-router-dom";
 
 const EmpMail = () => {
   const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
   const boxShadow = theme?.shape?.shadow;
   //   const borderRadius = theme?.shape?.borderRadius;

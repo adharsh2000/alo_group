@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
-import UserHeader from "../../Components/UserComponents/UserHeader";
+import { Box, Typography } from "@mui/material";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
 import UserNotificationCard from "../../Components/UserComponents/UserNotificationCard";
 
 const EmpNotifications = () => {
-  const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const theme = useTheme();
+  // const bgColor = theme?.palette?.background?.default;
   return (
     // <Box width="100%" bgcolor={bgColor} display="flex">
     //   <Box display="flex">

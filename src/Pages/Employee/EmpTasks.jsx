@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import UserHeader from "../../Components/UserComponents/UserHeader";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
 import { useTheme } from "@emotion/react";
 import { Box, Modal, Typography } from "@mui/material";
 import UserTaskCard from "../../Components/UserComponents/UserTaskCard";
@@ -9,7 +9,7 @@ import AddTask from "../../Components/Form/AddTask";
 
 const EmpTasks = () => {
   const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
   const main = theme?.palette?.primary?.main;
 

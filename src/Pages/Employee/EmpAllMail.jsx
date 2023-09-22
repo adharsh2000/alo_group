@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Box, Divider, Modal, Typography, useTheme } from "@mui/material";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
-import UserHeader from "../../Components/UserComponents/UserHeader";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
 import LeftArrowIcon from "../../Icons/LeftArrowIcon.svg";
 import UserMailCard from "../../Components/UserComponents/UserMailCard";
 import { Link } from "react-router-dom";
 
 const EmpAllMail = () => {
   const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const bgColor = theme?.palette?.background?.default;
   const paper = theme?.palette?.background?.paper;
 
   const [open, setOpen] = useState(false);

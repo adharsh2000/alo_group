@@ -1,12 +1,12 @@
-import { Box, Typography, useTheme } from "@mui/material";
 import React from "react";
-import UserNavbar from "../../Components/UserComponents/UserNavbar";
-import UserHeader from "../../Components/UserComponents/UserHeader";
+import { Box, Typography } from "@mui/material";
+// import UserNavbar from "../../Components/UserComponents/UserNavbar";
+// import UserHeader from "../../Components/UserComponents/UserHeader";
 import LeaveCalender from "../../Components/Common/LeaveCalender";
 
 const EmpLeave = () => {
-  const theme = useTheme();
-  const bgColor = theme?.palette?.background?.default;
+  // const theme = useTheme();
+  // const bgColor = theme?.palette?.background?.default;
   return (
     // <Box width="100%" bgcolor={bgColor} display="flex">
     //   <Box display="flex">
