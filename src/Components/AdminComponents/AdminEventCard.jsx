@@ -7,10 +7,13 @@ const AdminEventCard = ({ meeting }) => {
     <Box
       px={2}
       py={1}
-      width="80%"
+      // width="80%"
       bgcolor="#fff"
       display="flex"
       borderRadius="20px"
+      sx={{
+        width:{xs:'98%',md:'80%'}
+      }}
     >
       <Avatar
       src="https://img.freepik.com/free-vector/about-me-concept-with-interests-hobbies_23-2148889455.jpg?w=2000"
@@ -18,7 +21,7 @@ const AdminEventCard = ({ meeting }) => {
           borderRadius: 1,
           width: 60,
           height: 60,
-          mr: 8,
+          mr:{xs:1,md:8}
         }}
       />
       <Box

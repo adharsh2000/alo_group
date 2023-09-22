@@ -17,6 +17,8 @@ const AdminEvents = () => {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
+        flexWrap="wrap"
+        // py={2}
       >
         <Typography fontWeight="bold" fontSize="22px">
           Events
@@ -40,6 +42,8 @@ const AdminEvents = () => {
             "&:hover": {
               backgroundColor: "#1272A5",
             },
+            // justifyItems:"flex-end"
+            mt:{xs:2,md:0}
           }}
           onClick={() => setOpen(!open)}
         >
