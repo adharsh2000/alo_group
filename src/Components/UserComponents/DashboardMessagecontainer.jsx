@@ -21,8 +21,8 @@ const DashboardMessagecontainer = () => {
       bgcolor="#fff"
       borderRadius="20px"
       sx={{
-        width:{xs:"96%",md:300},
-        ml:{xs:1,md:2},
+        width: { xs: "96%", md: 300 },
+        ml: { xs: 1, md: 2 },
       }}
     >
       <Box display="flex" justifyContent="space-around" mt={1}>

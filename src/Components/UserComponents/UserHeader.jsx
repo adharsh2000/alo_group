@@ -47,9 +47,15 @@ const UserHeader = ({ open, setOpen }) => {
           width: { xs: "none", md: "70%" },
         }}
       >
-        <Box component="form" bgcolor="white" width={300} borderRadius="15px" sx={{
-            width:{xs:250,md:300}
-        }}>
+        <Box
+          component="form"
+          bgcolor="white"
+          width={300}
+          borderRadius="15px"
+          sx={{
+            width: { xs: 250, md: 300 },
+          }}
+        >
           <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
             <SearchIcon />
           </IconButton>
@@ -81,11 +87,15 @@ const UserHeader = ({ open, setOpen }) => {
           // mr={5}
           sx={{
             mr: { xs: 1, md: 5 },
-            ml:{xs:1,md:0}
+            ml: { xs: 1, md: 0 },
           }}
         >
           <Link to="/notifications">
-            <img src={NotificatioIcon} alt="notification" style={{color:"red"}} />
+            <img
+              src={NotificatioIcon}
+              alt="notification"
+              style={{ color: "red" }}
+            />
           </Link>
         </Box>
         <Box

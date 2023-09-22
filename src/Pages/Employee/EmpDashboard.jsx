@@ -12,16 +12,18 @@ const EmpDashboard = () => {
   // const [open,setOpen] = useState(false)
 
   return (
-        <Box display="flex" sx={{
-          flexDirection:{xs:"column",md:"row"}
-        }}>
-          <UserDashboardMainContent />
-          <Box display="flex" flexDirection="column">
-            <DashboardMessagecontainer />
-            <DashboardReminderContainer />
-          </Box>
-        </Box>
-      
+    <Box
+      display="flex"
+      sx={{
+        flexDirection: { xs: "column", md: "row" },
+      }}
+    >
+      <UserDashboardMainContent />
+      <Box display="flex" flexDirection="column">
+        <DashboardMessagecontainer />
+        <DashboardReminderContainer />
+      </Box>
+    </Box>
   );
 };
 

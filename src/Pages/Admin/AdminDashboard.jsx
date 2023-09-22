@@ -1,5 +1,5 @@
 import React from "react";
-import {  Grid,  Typography, } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 // import AdminNavbar from "../../Components/AdminComponents/AdminNavbar";
 // import AdminHeader from "../../Components/AdminComponents/AdminHeader";
 import TaskUpdatesContainer from "../../Components/AdminComponents/TaskUpdatesContainer";
@@ -33,36 +33,34 @@ function AdminDashboard() {
     //           <AdminHeader open={open} setOpen={setOpen} />
     //         </Grid>
     <>
-    
-            <Grid container item xs={12} sm={12} p={1}>
-              <Grid item xs={12}>
-                <Typography fontWeight="bold" fontSize="22px">
-                  Dashboard
-                </Typography>
-              </Grid>
-              <Grid item xs={12} sm={8} md={8}>
-                {/* <Box>First Container (3x)</Box> */}
-                <TaskUpdatesContainer />
-              </Grid>
+      <Grid container item xs={12} sm={12} p={1}>
+        <Grid item xs={12}>
+          <Typography fontWeight="bold" fontSize="22px">
+            Dashboard
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm={8} md={8}>
+          {/* <Box>First Container (3x)</Box> */}
+          <TaskUpdatesContainer />
+        </Grid>
 
-              <Grid
-                item
-                xs={12}
-                sm={4}
-                md={4}
-                // style={{ backgroundColor: "red", height: 20 }}
-              >
-                <DashboardReminderContainer height={"100%"} admin={true} />
-              </Grid>
-            </Grid>
-            <Grid container item xs={12} sm={12} p={1}>
-              <Grid item xs={12} sm={12} >
-                
-                  <CurrentProjects />
-                {/* </Box> */}
-              </Grid>
-            </Grid>
-            </>
+        <Grid
+          item
+          xs={12}
+          sm={4}
+          md={4}
+          // style={{ backgroundColor: "red", height: 20 }}
+        >
+          <DashboardReminderContainer height={"100%"} admin={true} />
+        </Grid>
+      </Grid>
+      <Grid container item xs={12} sm={12} p={1}>
+        <Grid item xs={12} sm={12}>
+          <CurrentProjects />
+          {/* </Box> */}
+        </Grid>
+      </Grid>
+    </>
     //       </Stack>
     //     </Box>
     //   </Grid>

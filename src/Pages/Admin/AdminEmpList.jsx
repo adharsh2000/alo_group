@@ -223,10 +223,7 @@ const AdminEmpList = () => {
               gap: { xs: 0, md: 2 },
             }}
           >
-            <Grid item 
-            md={4} 
-            xs={12}
-            >
+            <Grid item md={4} xs={12}>
               <Typography>Employee name</Typography>
               <TextField
                 placeholder="full name"
@@ -243,7 +240,6 @@ const AdminEmpList = () => {
                 inputProps={{ "aria-label": "Without label" }}
                 fullWidth
                 placeholder="Choose"
-                
               >
                 <MenuItem value="Choose">
                   <em>Choose</em>
@@ -298,11 +294,15 @@ const AdminEmpList = () => {
                 />
               </Grid>
 
-              <Grid item md={4} >
+              <Grid item md={4}>
                 <Typography>Designation</Typography>
-                <TextField placeholder="full name" fullwidth sx={{
-                  width:{xs:"130%",md:"100%"}
-                }} />
+                <TextField
+                  placeholder="full name"
+                  fullwidth
+                  sx={{
+                    width: { xs: "130%", md: "100%" },
+                  }}
+                />
               </Grid>
 
               <Grid item md={7.5} xs={12}>
@@ -310,11 +310,11 @@ const AdminEmpList = () => {
                   <Typography>Phone Number</Typography>
                   <TextField placeholder="full name" fullWidth />
                 </Stack>
-                <Stack  sx={{width:{xs:"100%",md:"60%"}}}>
+                <Stack sx={{ width: { xs: "100%", md: "60%" } }}>
                   <Typography>Enter Password</Typography>
                   <TextField placeholder="full name" />
                 </Stack>
-                <Stack sx={{width:{xs:"100%",md:"60%"}}}>
+                <Stack sx={{ width: { xs: "100%", md: "60%" } }}>
                   <Typography>Confirm Password</Typography>
                   <TextField placeholder="full name" />
                 </Stack>

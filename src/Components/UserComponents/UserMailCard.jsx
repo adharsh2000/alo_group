@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 
-const UserMailCard = ({ value,height,handleOpen }) => {
+const UserMailCard = ({ value, height, handleOpen }) => {
   const theme = useTheme();
   const boxShadow = theme?.shape?.shadow;
 
@@ -20,17 +20,19 @@ const UserMailCard = ({ value,height,handleOpen }) => {
       width="100%"
       height={height ? height : "auto"}
       pb={2}
-      sx={!height && {
-        border:'1px solid #000',
-        borderRadius:'20px',
-        mb:2,
-        boxShadow:boxShadow
-      }}
+      sx={
+        !height && {
+          border: "1px solid #000",
+          borderRadius: "20px",
+          mb: 2,
+          boxShadow: boxShadow,
+        }
+      }
       onClick={handleOpen}
-    //   border="1px solid #000"
-    //   borderRadius="20px"
-    //   mb={2}
-    //   boxShadow={boxShadow}
+      //   border="1px solid #000"
+      //   borderRadius="20px"
+      //   mb={2}
+      //   boxShadow={boxShadow}
     >
       <Box display="flex" justifyContent="space-between" px={2} py={2}>
         <Typography>Requested For Leave</Typography>

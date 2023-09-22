@@ -46,7 +46,7 @@ import { Box } from "@mui/material";
 
 export default function LeaveCalender() {
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs} >
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box width={300} height={300}>
         <DateCalendar showDaysOutsideCurrentMonth fixedWeekNumber={6} />
       </Box>

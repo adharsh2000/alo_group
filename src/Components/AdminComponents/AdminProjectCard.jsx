@@ -171,11 +171,15 @@ const AdminProjectCard = () => {
             </Button>
             <Typography mx="auto">Employees</Typography>
           </Box>
-          <Box display="flex" justifyContent="space-between" mx={2} my={2}
-          sx={{
-            flexDirection:{xs:"column",md:"row"},
-            gap:{xs:1,md:0}
-          }}
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            mx={2}
+            my={2}
+            sx={{
+              flexDirection: { xs: "column", md: "row" },
+              gap: { xs: 1, md: 0 },
+            }}
           >
             <Box
               display="flex"
@@ -183,8 +187,8 @@ const AdminProjectCard = () => {
               alignItems="center"
               // justifyContent="center"
               sx={{
-                flexDirection:{xs:"row",md:"column"},
-                justifyContent:{xs:"space-between",md:"center"}
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
               }}
             >
               <Avatar />
@@ -197,36 +201,8 @@ const AdminProjectCard = () => {
               alignItems="center"
               // justifyContent="center"
               sx={{
-                flexDirection:{xs:"row",md:"column"},
-                justifyContent:{xs:"space-between",md:"center"}
-              }}
-            >
-              <Avatar />
-              <Typography fontSize="15px">lorem ipsim</Typography>
-              <Typography fontWeight="bold">Ui/Ux</Typography>
-            </Box>
-            <Box
-             display="flex"
-             // flexDirection="column"
-             alignItems="center"
-             // justifyContent="center"
-             sx={{
-               flexDirection:{xs:"row",md:"column"},
-               justifyContent:{xs:"space-between",md:"center"}
-             }}
-            >
-              <Avatar />
-              <Typography fontSize="15px">lorem ipsim</Typography>
-              <Typography fontWeight="bold">Ui/Ux</Typography>
-            </Box>
-            <Box
-              display="flex"
-              // flexDirection="column"
-              alignItems="center"
-              // justifyContent="center"
-              sx={{
-                flexDirection:{xs:"row",md:"column"},
-                justifyContent:{xs:"space-between",md:"center"}
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
               }}
             >
               <Avatar />
@@ -239,8 +215,8 @@ const AdminProjectCard = () => {
               alignItems="center"
               // justifyContent="center"
               sx={{
-                flexDirection:{xs:"row",md:"column"},
-                justifyContent:{xs:"space-between",md:"center"}
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
               }}
             >
               <Avatar />
@@ -253,8 +229,36 @@ const AdminProjectCard = () => {
               alignItems="center"
               // justifyContent="center"
               sx={{
-                flexDirection:{xs:"row",md:"column"},
-                justifyContent:{xs:"space-between",md:"center"}
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
+              }}
+            >
+              <Avatar />
+              <Typography fontSize="15px">lorem ipsim</Typography>
+              <Typography fontWeight="bold">Ui/Ux</Typography>
+            </Box>
+            <Box
+              display="flex"
+              // flexDirection="column"
+              alignItems="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
+              }}
+            >
+              <Avatar />
+              <Typography fontSize="15px">lorem ipsim</Typography>
+              <Typography fontWeight="bold">Ui/Ux</Typography>
+            </Box>
+            <Box
+              display="flex"
+              // flexDirection="column"
+              alignItems="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection: { xs: "row", md: "column" },
+                justifyContent: { xs: "space-between", md: "center" },
               }}
             >
               <Avatar />

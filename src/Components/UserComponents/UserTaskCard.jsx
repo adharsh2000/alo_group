@@ -1,4 +1,3 @@
-
 import {
   Box,
   Button,
@@ -8,14 +7,14 @@ import {
 import React from "react";
 
 const priorityColor = (priority) => {
-  if(priority === "High"){
+  if (priority === "High") {
     return "#FF0000";
-  }else if(priority === "Low"){
+  } else if (priority === "Low") {
     return "#00FF1A";
-  }else if(priority === "Medium"){
+  } else if (priority === "Medium") {
     return "#FFF500";
   }
-}
+};
 
 const UserTaskCard = ({ newtask, priority, width, completed }) => {
   // const theme = useTheme();
@@ -134,11 +133,12 @@ const UserTaskCard = ({ newtask, priority, width, completed }) => {
           )}
           <Box display="flex" flexDirection="column" alignItems="center">
             <Typography color="gray">Priority</Typography>
-            <Typography fontWeight="bold" color={priorityColor(priority)}>{priority}</Typography>
+            <Typography fontWeight="bold" color={priorityColor(priority)}>
+              {priority}
+            </Typography>
           </Box>
         </Box>
       </Box>
-      
     </Box>
   );
 };

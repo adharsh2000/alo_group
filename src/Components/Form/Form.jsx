@@ -72,7 +72,7 @@ const Form = ({ admin }) => {
     dispatch(clearError());
 
     if (rememberMe) {
-      setCookie("email", email, { expires: 30 });//days
+      setCookie("email", email, { expires: 30 }); //days
       setCookie("password", password, { expires: 30 });
       setCookie("rememberMe", "true", { expires: 30 });
     } else {

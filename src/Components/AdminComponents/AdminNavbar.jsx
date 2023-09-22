@@ -1,8 +1,19 @@
-import React from 'react'
-import { Avatar, Box, Divider, Drawer, List, ListItem, ListItemAvatar, ListItemText,  styled,  useTheme } from '@mui/material'
+import React from "react";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Drawer,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+  styled,
+  useTheme,
+} from "@mui/material";
 import CompanyLogo from "../../Icons/CompanyIcon.svg";
-import { adminHeaderData } from '../../data/adminNavbar';
-import { Link } from 'react-router-dom';
+import { adminHeaderData } from "../../data/adminNavbar";
+import { Link } from "react-router-dom";
 
 const Nav = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -10,19 +21,21 @@ const Nav = styled(Box)(({ theme }) => ({
   },
 }));
 
-const AdminNavbar = ({open,setOpen}) => {
+const AdminNavbar = ({ open, setOpen }) => {
   const theme = useTheme();
   // const bgColor = theme?.palette?.background?.paper;
   const textColor = theme?.palette?.primary?.main;
 
   const adminNav = () => {
     return (
-      <Box sx={{
-        width:'100%',
-        height:'100vh',
-        backgroundColor: '#fff',
-        borderRadius:"0px 30px 30px 0px",
-    }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: "100vh",
+          backgroundColor: "#fff",
+          borderRadius: "0px 30px 30px 0px",
+        }}
+      >
         <Box
           width="100%"
           height="120px"
@@ -32,7 +45,6 @@ const AdminNavbar = ({open,setOpen}) => {
           justifyContent="space-evenly"
         >
           <img src={CompanyLogo} alt="company/logo" />
-          
         </Box>
         <Divider
           sx={{
@@ -75,31 +87,28 @@ const AdminNavbar = ({open,setOpen}) => {
             </ListItem>
           ))}
         </List>
-    </Box>
-    )
-  }
-
+      </Box>
+    );
+  };
 
   return (
     <React.Fragment>
-    {/* Visible in mobile view */}
-    <Nav>
-      <Drawer
-        anchor="left"
-        open={open}
-        variant="temporary"
-        onClose={() => setOpen(!open)}
-      >
-        {adminNav()}
-      </Drawer>
-    </Nav>
+      {/* Visible in mobile view */}
+      <Nav>
+        <Drawer
+          anchor="left"
+          open={open}
+          variant="temporary"
+          onClose={() => setOpen(!open)}
+        >
+          {adminNav()}
+        </Drawer>
+      </Nav>
 
-    {/* Always visible on larger screens */}
-    <Nav>
-      {adminNav()}
-    </Nav>
-  </React.Fragment>
+      {/* Always visible on larger screens */}
+      <Nav>{adminNav()}</Nav>
+    </React.Fragment>
   );
-}
+};
 
-export default AdminNavbar
+export default AdminNavbar;

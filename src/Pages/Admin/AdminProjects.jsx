@@ -5,9 +5,9 @@ import AdminProjectCard from "../../Components/AdminComponents/AdminProjectCard"
 import AdminAddProject from "../../Components/Form/AdminAddProject";
 
 const AdminProjects = () => {
-    const [open,setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
-    const handleClose = () => setOpen(!open);
+  const handleClose = () => setOpen(!open);
   return (
     <>
       <Box
@@ -17,7 +17,7 @@ const AdminProjects = () => {
         alignItems="center"
         justifyContent="space-between"
         sx={{
-          width:{xs:"100%",md:1275}
+          width: { xs: "100%", md: 1275 },
         }}
       >
         <Typography fontWeight="bold" fontSize="22px">
@@ -34,7 +34,7 @@ const AdminProjects = () => {
               backgroundColor: "#1272A5",
             },
           }}
-            onClick={() => setOpen(!open)}
+          onClick={() => setOpen(!open)}
         >
           <img src={addIcon} width={20} alt="add" />
           New Project
@@ -55,10 +55,10 @@ const AdminProjects = () => {
             mb={2}
             // p={2}
             sx={{
-              p:{xs:0,md:2}
+              p: { xs: 0, md: 2 },
             }}
           >
-            <AdminProjectCard open={open} setOpen={setOpen}  />
+            <AdminProjectCard open={open} setOpen={setOpen} />
           </Grid>
           <Grid
             item
@@ -69,7 +69,7 @@ const AdminProjects = () => {
             mb={2}
             // p={2}
             sx={{
-              p:{xs:0,md:2}
+              p: { xs: 0, md: 2 },
             }}
           >
             <AdminProjectCard open={open} setOpen={setOpen} />
@@ -89,14 +89,14 @@ const AdminProjects = () => {
         }}
       >
         <Box
-        //   width="40%"
+          //   width="40%"
           bgcolor="#fff"
           borderRadius="10px"
           sx={{
-            width: { xs: "90%", md: "60%",lg:"40%" },
+            width: { xs: "90%", md: "60%", lg: "40%" },
           }}
         >
-          <AdminAddProject open={open} setOpen={setOpen}/>
+          <AdminAddProject open={open} setOpen={setOpen} />
         </Box>
       </Modal>
     </>

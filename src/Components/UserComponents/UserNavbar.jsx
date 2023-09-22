@@ -17,14 +17,13 @@ import { useTheme } from "@emotion/react";
 import { Link } from "react-router-dom";
 import { userHeaderData } from "../../data/userNavbar";
 
-
 const Nav = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
     display: "none",
   },
 }));
 
-const UserNavbar = ({open,setOpen}) => {
+const UserNavbar = ({ open, setOpen }) => {
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.paper;
   const textColor = theme?.palette?.primary?.main;
@@ -40,11 +39,11 @@ const UserNavbar = ({open,setOpen}) => {
         position="fixed"
         sx={{
           borderRadius: `0px 20px 20px 0px`,
-         '@media (max-width: 600px)' :{
-            position:'static',
-            height:"50vh",
-            width:250
-          }
+          "@media (max-width: 600px)": {
+            position: "static",
+            height: "50vh",
+            width: 250,
+          },
         }}
       >
         <Box
@@ -125,30 +124,27 @@ const UserNavbar = ({open,setOpen}) => {
     );
   };
 
-
   return (
     <React.Fragment>
-    {/* Visible in mobile view */}
-    <Nav>
-      <Drawer
-        anchor="left"
-        open={open} // You can control the drawer's initial state here
-        variant="temporary"
-        onClose={() => setOpen(!open)}
-      >
-        {navBar()}
-        {/* test */}
-      </Drawer>
-    </Nav>
+      {/* Visible in mobile view */}
+      <Nav>
+        <Drawer
+          anchor="left"
+          open={open} // You can control the drawer's initial state here
+          variant="temporary"
+          onClose={() => setOpen(!open)}
+        >
+          {navBar()}
+          {/* test */}
+        </Drawer>
+      </Nav>
 
-    {/* Always visible on larger screens */}
-    <Nav>
-      {navBar()}
-    </Nav>
-  </React.Fragment>
-  // <Nav>
-  //   {navBar()}
-  // </Nav>
+      {/* Always visible on larger screens */}
+      <Nav>{navBar()}</Nav>
+    </React.Fragment>
+    // <Nav>
+    //   {navBar()}
+    // </Nav>
   );
 };
 

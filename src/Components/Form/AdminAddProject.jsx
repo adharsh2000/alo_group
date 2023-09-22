@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import FormClose from "../../Icons/FormClose.svg";
 // import fileUpload from "../../Icons/AdminIcons/AdminUploadIcon.svg"
-import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
+import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 
 const AdminAddProject = ({ open, setOpen }) => {
   const [selectedValue, setSelectedValue] = useState("Choose");
@@ -37,7 +37,7 @@ const AdminAddProject = ({ open, setOpen }) => {
       {/* form Header */}
       <Box display="flex" alignItems="center" mt={1}>
         <Typography flex={5} variant="h6" textAlign="center">
-            New Project
+          New Project
         </Typography>
         <Box flex={0.5} mr={1}>
           <Box
@@ -85,7 +85,7 @@ const AdminAddProject = ({ open, setOpen }) => {
         >
           <Grid item md={4} xs={6}>
             <Typography>Starting date</Typography>
-            <TextField type="date" fullWidth /> 
+            <TextField type="date" fullWidth />
           </Grid>
           <Grid item md={3} xs={5}>
             <Typography>Period</Typography>
@@ -152,26 +152,31 @@ const AdminAddProject = ({ open, setOpen }) => {
                 onClick={handleImageClick}
                 style={{ cursor: "pointer" }}
               /> */}
-              <UploadFileOutlinedIcon onClick={handleImageClick} sx={{
-                cursor:'pointer'
-              }} />
+              <UploadFileOutlinedIcon
+                onClick={handleImageClick}
+                sx={{
+                  cursor: "pointer",
+                }}
+              />
               <input
                 type="file"
-                accept=".jpg, .jpeg, .png, .gif" 
+                accept=".jpg, .jpeg, .png, .gif"
                 onChange={handleFileSelect}
                 ref={fileInputRef}
                 style={{ display: "none" }}
               />
             </Box>
-            <Button sx={{
-                m:3,
+            <Button
+              sx={{
+                m: 3,
                 backgroundColor: "#1272A5",
                 color: "#fff",
                 "&:hover": {
                   backgroundColor: "#1272A5",
                 },
-            }}>
-                Add Project
+              }}
+            >
+              Add Project
             </Button>
           </Grid>
         </Grid>
@@ -180,4 +185,4 @@ const AdminAddProject = ({ open, setOpen }) => {
   );
 };
 
-export default AdminAddProject
+export default AdminAddProject;

@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import FormClose from "../../Icons/FormClose.svg";
 
-const AdminLeaveCard = ({ newReq = true, accepted , declined, type  }) => {
+const AdminLeaveCard = ({ newReq = true, accepted, declined, type }) => {
   const theme = useTheme();
   const shadow = theme?.shape?.shadow;
 

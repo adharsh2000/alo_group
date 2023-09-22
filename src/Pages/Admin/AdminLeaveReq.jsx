@@ -23,7 +23,7 @@ const AdminLeaveReq = () => {
         justifyContent="space-between"
         // bgcolor="red"
         sx={{
-          width:{xs:"99%",md:"60%"}
+          width: { xs: "99%", md: "60%" },
         }}
       >
         <Typography fontWeight="bold" fontSize="22px">

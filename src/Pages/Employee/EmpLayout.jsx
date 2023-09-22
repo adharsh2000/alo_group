@@ -30,9 +30,7 @@ const EmpLayout = ({ children }) => {
         sm={10}
         sx={{ marginLeft: { xs: 0, sm: 30 } }}
       >
-        <Box
-        sx={{ width: "100%" }}
-        >
+        <Box sx={{ width: "100%" }}>
           <Stack rowGap={1} columnGap={1}>
             <Grid item xs={12}>
               <UserHeader open={open} setOpen={setOpen} />

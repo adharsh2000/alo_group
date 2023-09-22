@@ -354,10 +354,12 @@ const AdminTaskList = () => {
           justifyContent: "center",
         }}
       >
-        <Box sx={{
-          bgcolor:"#fff",
-          borderRadius:"10px",
-        }}>
+        <Box
+          sx={{
+            bgcolor: "#fff",
+            borderRadius: "10px",
+          }}
+        >
           <AddTask admin={true} />
         </Box>
       </Modal>

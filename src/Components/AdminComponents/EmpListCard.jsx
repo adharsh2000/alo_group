@@ -51,18 +51,18 @@ const EmpListCard = ({ task }) => {
         flexDirection: { xs: "column", md: "row" },
       }}
     >
-      <Box 
-      width="70%"
-      display="flex"
-      sx={{
-        flexDirection: {
-          xs: "row",
-          md: "column",
-        },
-        justifyContent: {
-          xs: "space-between",
-        },
-      }}
+      <Box
+        width="70%"
+        display="flex"
+        sx={{
+          flexDirection: {
+            xs: "row",
+            md: "column",
+          },
+          justifyContent: {
+            xs: "space-between",
+          },
+        }}
       >
         <Avatar
           alt="Remy Sharp"

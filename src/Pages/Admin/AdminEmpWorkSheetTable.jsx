@@ -5,7 +5,14 @@ import LeftArrowIcon from "../../Icons/LeftArrowIcon.svg";
 const AdminEmpWorkSheetTable = () => {
   return (
     <>
-      <Box height={800} bgcolor="#fff" borderRadius="20px">
+      <Box
+        height={800}
+        bgcolor="#fff"
+        borderRadius="20px"
+        sx={{
+          width: { xs: "100%", md: 1275 },
+        }}
+      >
         <Box display="flex" alignItems="center" px={2}>
           <img src={LeftArrowIcon} alt="back" />
           <Typography py={2} fontWeight="bold">
@@ -20,7 +27,7 @@ const AdminEmpWorkSheetTable = () => {
               border: "1px solid #c2c2c2",
               padding: 5,
               borderRadius: "10px",
-              marginLeft:10,
+              marginLeft: 10,
             }}
           />
         </Box>

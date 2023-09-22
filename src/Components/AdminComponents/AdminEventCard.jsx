@@ -12,16 +12,16 @@ const AdminEventCard = ({ meeting }) => {
       display="flex"
       borderRadius="20px"
       sx={{
-        width:{xs:'98%',md:'80%'}
+        width: { xs: "98%", md: "80%" },
       }}
     >
       <Avatar
-      src="https://img.freepik.com/free-vector/about-me-concept-with-interests-hobbies_23-2148889455.jpg?w=2000"
+        src="https://img.freepik.com/free-vector/about-me-concept-with-interests-hobbies_23-2148889455.jpg?w=2000"
         sx={{
           borderRadius: 1,
           width: 60,
           height: 60,
-          mr:{xs:1,md:8}
+          mr: { xs: 1, md: 8 },
         }}
       />
       <Box

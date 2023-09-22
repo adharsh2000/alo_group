@@ -6,7 +6,7 @@ import AdminEventCard from "../../Components/AdminComponents/AdminEventCard";
 import AdminEventForm from "../../Components/Form/AdminEventForm";
 
 const AdminEvents = () => {
-  const [open,setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
 
   return (
@@ -43,7 +43,7 @@ const AdminEvents = () => {
               backgroundColor: "#1272A5",
             },
             // justifyItems:"flex-end"
-            mt:{xs:2,md:0}
+            mt: { xs: 2, md: 0 },
           }}
           onClick={() => setOpen(!open)}
         >
@@ -52,53 +52,104 @@ const AdminEvents = () => {
         </Button>
       </Box>
       <Box height={800}>
-      <Grid container xs={12} sm={12} maxheight={300}>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
+        <Grid container xs={12} sm={12} maxheight={300}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard meeting={true} />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            display="flex"
+            justifyContent="center"
+            mb={2}
+          >
+            <AdminEventCard />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
-        </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard meeting={true} />
-        </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
-        </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
-        </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
-        </Grid>
-        <Grid item xs={12} sm={6} display="flex" justifyContent="center" mb={2}>
-          <AdminEventCard />
-        </Grid>
-      </Grid>
       </Box>
 
       {/* event modal  */}
       {/* <Button onClick={handleOpen}>Open modal</Button> */}
-<Modal
-  open={open}
-  onClose={handleClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
-  sx={{
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-}}
->
-  <Box sx={{
-            backgroundColor:'white',
-            width:400,
-            height:500,
-            borderRadius:'20px',
-        }}>
-    <AdminEventForm open={open} setOpen={setOpen} />
-  </Box>
-</Modal>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "white",
+            width: 400,
+            height: 500,
+            borderRadius: "20px",
+          }}
+        >
+          <AdminEventForm open={open} setOpen={setOpen} />
+        </Box>
+      </Modal>
     </>
   );
 };

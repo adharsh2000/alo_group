@@ -40,9 +40,9 @@ const CardBox = styled(Box)(({ theme }) => ({
   //   flexDirection: "column",
   // },
   [theme.breakpoints.down("lg")]: {
-      width: "100%",
-      // margin: "10px",
-      flexDirection: "column",
+    width: "100%",
+    // margin: "10px",
+    flexDirection: "column",
   },
 }));
 

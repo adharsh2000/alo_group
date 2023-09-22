@@ -26,11 +26,9 @@ const EmpMessages = () => {
       //   ml:{xs:0,md:6}
       // }}
       mx="auto"
-      sx={
-        {
-          height:{xs:730,md:600}
-        }
-      }
+      sx={{
+        height: { xs: 730, md: 600 },
+      }}
     >
       <Typography fontWeight="bold" fontSize="22px" py={2} pl={4}>
         Messages

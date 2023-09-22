@@ -2,9 +2,9 @@ import React from "react";
 import { Avatar, Box, Typography, useTheme } from "@mui/material";
 
 const UserChatCard = ({ me }) => {
-    const theme = useTheme();
-    const boxShadow = theme?.shape?.shadow;
-    
+  const theme = useTheme();
+  const boxShadow = theme?.shape?.shadow;
+
   return (
     <Box
       display="flex"
@@ -20,7 +20,9 @@ const UserChatCard = ({ me }) => {
         borderRadius="10px"
         p={1}
         width="87%"
-        sx={me ?{backgroundColor:'#A3D8FF'} : {backgroundColor:'#EEEEEE'}}
+        sx={
+          me ? { backgroundColor: "#A3D8FF" } : { backgroundColor: "#EEEEEE" }
+        }
         boxShadow={boxShadow}
       >
         <Typography fontWeight="bold">

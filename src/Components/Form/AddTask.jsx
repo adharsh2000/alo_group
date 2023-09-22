@@ -103,6 +103,7 @@ const AddTask = ({ handleClose, admin }) => {
             Task Name
           </Typography>
           <select
+            value="Choose"
             name="project"
             id="project"
             style={{

@@ -19,72 +19,72 @@ const EmpMail = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
+    <Box
+      display="flex"
+      gap={2}
+      justifyContent="space-evenly"
+      px={2}
+      // pr={3}
+      my={2}
+      height={"85vh"}
+      // sx={{
+      //   ml:{xs:0,md:5}
+      // }}
+      // width="100%"
+      sx={{
+        flexDirection: { xs: "column-reverse", md: "row" },
+      }}
+    >
+      <Box bgcolor={paper} flex={3} borderRadius="20px">
+        <EmpMailForm />
+      </Box>
+      <Box
+        bgcolor={paper}
+        flex={1}
+        display="flex"
+        justifyContent="center"
+        // alignItems="center"
+        borderRadius="20px"
+        sx={{
+          alignItems: { xs: "center", md: "flex-start" },
+        }}
+      >
         <Box
+          border="1px solid #000"
+          width="90%"
+          height={50}
           display="flex"
+          alignItems="center"
+          justifyContent="center"
           gap={2}
-          justifyContent="space-evenly"
-          px={2}
-          // pr={3}
-          my={2}
-          height={"85vh"}
-          // sx={{
-          //   ml:{xs:0,md:5}
-          // }}
-          // width="100%"
+          // mt={2}
+          boxShadow={boxShadow}
+          borderRadius="10px"
+          textAlign="center"
           sx={{
-            flexDirection:{xs:"column-reverse",md:"row"}
+            mt: { xs: 0, md: 2 },
           }}
         >
-          <Box bgcolor={paper} flex={3} borderRadius="20px">
-            <EmpMailForm />
-          </Box>
-          <Box
-            bgcolor={paper}
-            flex={1}
-            display="flex"
-            justifyContent="center"
-            // alignItems="center"
-            borderRadius="20px"
-            sx={{
-              alignItems:{xs:"center",md:"flex-start"}
+          <Link
+            to={"/allmails"}
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              display: "flex",
+              gap: 8,
             }}
           >
-            <Box
-              border="1px solid #000"
-              width="90%"
-              height={50}
-              display="flex"
-              alignItems="center"
-              justifyContent="center"
-              gap={2}
-              // mt={2}
-              boxShadow={boxShadow}
-              borderRadius="10px"
-              textAlign="center"
-              sx={{
-                mt:{xs:0,md:2}
-              }}
+            <img src={MailIcon} alt="mail" width={30} />
+            <Typography
+              fontWeight="bold"
+              sx={{ margin: "auto", whiteSpace: "nowrap" }}
             >
-              <Link
-                to={"/allmails"}
-                style={{
-                  textDecoration: "none",
-                  color: "inherit",
-                  display: "flex",
-                  gap:8
-                }}
-              >
-                <img src={MailIcon} alt="mail" width={30}  />
-                <Typography
-                  fontWeight="bold"
-                  sx={{ margin: "auto", whiteSpace: "nowrap" }}
-                >
-                  All Mails
-                </Typography>
-              </Link>
-            </Box>
-          </Box>
+              All Mails
+            </Typography>
+          </Link>
         </Box>
+      </Box>
+    </Box>
     //   </Box>
     // </Box>
   );

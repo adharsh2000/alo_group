@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
-import IconButton from '@mui/material/IconButton';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import IconButton from "@mui/material/IconButton";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 
-const FormField = ({ type, placeHolder,value,onChange,error,helperText }) => {
+const FormField = ({
+  type,
+  placeHolder,
+  value,
+  onChange,
+  error,
+  helperText,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleClickShowPassword = () => {
@@ -19,7 +26,7 @@ const FormField = ({ type, placeHolder,value,onChange,error,helperText }) => {
   return (
     <TextField
       id={type}
-      type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
+      type={type === "password" ? (showPassword ? "text" : "password") : type}
       placeholder={placeHolder}
       variant="outlined"
       margin="normal"
@@ -33,7 +40,7 @@ const FormField = ({ type, placeHolder,value,onChange,error,helperText }) => {
         // height: 79
       }}
       InputProps={
-        type === 'password'
+        type === "password"
           ? {
               endAdornment: (
                 <InputAdornment position="end">
@@ -43,7 +50,11 @@ const FormField = ({ type, placeHolder,value,onChange,error,helperText }) => {
                     onMouseDown={handleMouseDownPassword}
                     edge="end"
                   >
-                    {showPassword ? <VisibilityOffOutlinedIcon /> : <VisibilityOutlinedIcon />}
+                    {showPassword ? (
+                      <VisibilityOffOutlinedIcon />
+                    ) : (
+                      <VisibilityOutlinedIcon />
+                    )}
                   </IconButton>
                 </InputAdornment>
               ),
