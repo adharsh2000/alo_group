@@ -17,11 +17,14 @@ const AdminLeaveReq = () => {
     <>
       <Box
         p={1}
-        width="60%"
+        // width="60%"
         display="flex"
         alignItems="center"
         justifyContent="space-between"
         // bgcolor="red"
+        sx={{
+          width:{xs:"99%",md:"60%"}
+        }}
       >
         <Typography fontWeight="bold" fontSize="22px">
           Leave Requests
