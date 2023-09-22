@@ -12,10 +12,13 @@ const AdminProjects = () => {
     <>
       <Box
         p={1}
-        width={1275}
+        // width={1275}
         display="flex"
         alignItems="center"
         justifyContent="space-between"
+        sx={{
+          width:{xs:"100%",md:1275}
+        }}
       >
         <Typography fontWeight="bold" fontSize="22px">
           Projects
@@ -37,7 +40,7 @@ const AdminProjects = () => {
           New Project
         </Button>
       </Box>
-      <Box height={800} bgcolor="#fff" borderRadius="20px">
+      <Box height="auto" bgcolor="#fff" borderRadius="20px">
         <Typography p={2} fontWeight="bold">
           On Going Projects
         </Typography>
@@ -50,7 +53,10 @@ const AdminProjects = () => {
             display="flex"
             justifyContent="center"
             mb={2}
-            p={2}
+            // p={2}
+            sx={{
+              p:{xs:0,md:2}
+            }}
           >
             <AdminProjectCard open={open} setOpen={setOpen}  />
           </Grid>
@@ -61,7 +67,10 @@ const AdminProjects = () => {
             display="flex"
             justifyContent="center"
             mb={2}
-            p={2}
+            // p={2}
+            sx={{
+              p:{xs:0,md:2}
+            }}
           >
             <AdminProjectCard open={open} setOpen={setOpen} />
           </Grid>

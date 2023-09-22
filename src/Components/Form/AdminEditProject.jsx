@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import FormClose from "../../Icons/FormClose.svg";
 // import fileUpload from "../../Icons/AdminIcons/AdminUploadIcon.svg"
-import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
+import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 
 const AdminEditProject = ({ open, setOpen }) => {
   const [selectedValue, setSelectedValue] = useState("Choose");
@@ -37,7 +37,7 @@ const AdminEditProject = ({ open, setOpen }) => {
       {/* form Header */}
       <Box display="flex" alignItems="center" mt={1}>
         <Typography flex={5} variant="h6" textAlign="center">
-            Edit project
+          Edit project
         </Typography>
         <Box flex={0.5} mr={1}>
           <Box
@@ -66,13 +66,13 @@ const AdminEditProject = ({ open, setOpen }) => {
         justifyContent="space-between"
         gap={2}
       >
-        <Grid item md={4}>
+        <Grid item md={4} xs={12}>
           <Typography>Client name</Typography>
-          <TextField placeholder="ABCD Traders" />
+          <TextField placeholder="ABCD Traders" fullWidth />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} xs={12}>
           <Typography>Project name</Typography>
-          <TextField placeholder="ABCD" />
+          <TextField placeholder="ABCD" fullWidth />
         </Grid>
         <Grid
           container
@@ -83,20 +83,20 @@ const AdminEditProject = ({ open, setOpen }) => {
           display="flex"
           justifyContent="space-between"
         >
-          <Grid item md={4}>
+          <Grid item md={4} xs={6}>
             <Typography>Starting date</Typography>
             <TextField type="date" fullWidth />
           </Grid>
-          <Grid item md={3}>
+          <Grid item md={3} xs={5}>
             <Typography>Period</Typography>
             <TextField placeholder="90 days" fullWidth />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} xs={12}>
             <Typography>Project Type</Typography>
             <TextField placeholder="E-Commerce" fullWidth />
           </Grid>
 
-          <Grid item md={7.5}>
+          <Grid item md={7.5} xs={5}>
             <Typography>Employees</Typography>
             <Select
               value={selectedValue}
@@ -152,26 +152,31 @@ const AdminEditProject = ({ open, setOpen }) => {
                 onClick={handleImageClick}
                 style={{ cursor: "pointer" }}
               /> */}
-              <UploadFileOutlinedIcon onClick={handleImageClick} sx={{
-                cursor:'pointer'
-              }} />
+              <UploadFileOutlinedIcon
+                onClick={handleImageClick}
+                sx={{
+                  cursor: "pointer",
+                }}
+              />
               <input
                 type="file"
-                accept=".jpg, .jpeg, .png, .gif" 
+                accept=".jpg, .jpeg, .png, .gif"
                 onChange={handleFileSelect}
                 ref={fileInputRef}
                 style={{ display: "none" }}
               />
             </Box>
-            <Button sx={{
-                m:3,
+            <Button
+              sx={{
+                m: 3,
                 backgroundColor: "#1272A5",
                 color: "#fff",
                 "&:hover": {
                   backgroundColor: "#1272A5",
                 },
-            }}>
-                Save Changes
+              }}
+            >
+              Save Changes
             </Button>
           </Grid>
         </Grid>

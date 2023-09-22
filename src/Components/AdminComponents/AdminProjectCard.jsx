@@ -26,7 +26,12 @@ const AdminProjectCard = () => {
           display="flex"
           alignItems="center"
           justifyContent="space-between"
-          m={2}
+          // m={2}
+          sx={{
+            m: { xs: 1, md: 2 },
+            flexDirection: { xs: "column", md: "row" },
+            gap: { xs: 2, md: 0 },
+          }}
         >
           <Typography
             bgcolor="#FFDEDE"
@@ -34,6 +39,7 @@ const AdminProjectCard = () => {
             py={2}
             px={8}
             borderRadius="10px"
+            width="auto"
           >
             ABCD
           </Typography>
@@ -58,51 +64,86 @@ const AdminProjectCard = () => {
             </Typography>
           </Box>
         </Box>
-        <Box display="flex" justifyContent="space-between" mx={2} height={60}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          mx={2}
+          height={60}
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+          }}
+        >
           <Box
             display="flex"
-            flexDirection="column"
+            // flexDirection="column"
             justifyContent="space-between"
+            sx={{
+              flexDirection: { xs: "row", md: "column" },
+            }}
           >
             <Typography>Project Type</Typography>
             <Typography fontWeight="bold">E-Commerce</Typography>
           </Box>
           <Box
             display="flex"
-            flexDirection="column"
+            // flexDirection="column"
             justifyContent="space-between"
+            sx={{
+              flexDirection: { xs: "row", md: "column" },
+            }}
           >
             <Typography>Client Name</Typography>
             <Typography fontWeight="bold">ABCD Traders</Typography>
           </Box>
           <Box
             display="flex"
-            flexDirection="column"
+            // flexDirection="column"
             justifyContent="space-between"
+            sx={{
+              flexDirection: { xs: "row", md: "column" },
+            }}
           >
             <Typography>Starting Date</Typography>
             <Typography fontWeight="bold">jun 20,2023</Typography>
           </Box>
           <Box
             display="flex"
-            flexDirection="column"
+            // flexDirection="column"
             justifyContent="space-between"
+            sx={{
+              flexDirection: { xs: "row", md: "column" },
+            }}
           >
             <Typography>Period</Typography>
             <Typography fontWeight="bold">90 Days</Typography>
           </Box>
         </Box>
-        <Box display="flex" justifyContent="space-between" m={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          m={2}
+          sx={{
+            flexDirection: { xs: "column", md: "row" },
+            mt: { xs: 4, md: 0 },
+          }}
+        >
           <Box
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
             alignItems="center"
+            sx={{
+              flexDirection: { xs: "row", md: "column" },
+            }}
           >
             <Typography>Current Status</Typography>
             <Typography fontWeight="bold">Ui/Ux</Typography>
           </Box>
-          <ProjectProgress value={70} width={"70%"} />
+          <ProjectProgress
+            value={70}
+            // width={"70%"}
+            width={{ xs: "100%", md: "70%" }}
+          />
         </Box>
         <Divider sx={{ borderTop: "2px solid #909090" }} />
         <Box>
@@ -130,12 +171,21 @@ const AdminProjectCard = () => {
             </Button>
             <Typography mx="auto">Employees</Typography>
           </Box>
-          <Box display="flex" justifyContent="space-between" mx={2} my={2}>
+          <Box display="flex" justifyContent="space-between" mx={2} my={2}
+          sx={{
+            flexDirection:{xs:"column",md:"row"},
+            gap:{xs:1,md:0}
+          }}
+          >
             <Box
               display="flex"
-              flexDirection="column"
+              // flexDirection="column"
               alignItems="center"
-              justifyContent="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection:{xs:"row",md:"column"},
+                justifyContent:{xs:"space-between",md:"center"}
+              }}
             >
               <Avatar />
               <Typography fontSize="15px">lorem ipsim</Typography>
@@ -143,9 +193,27 @@ const AdminProjectCard = () => {
             </Box>
             <Box
               display="flex"
-              flexDirection="column"
+              // flexDirection="column"
               alignItems="center"
-              justifyContent="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection:{xs:"row",md:"column"},
+                justifyContent:{xs:"space-between",md:"center"}
+              }}
+            >
+              <Avatar />
+              <Typography fontSize="15px">lorem ipsim</Typography>
+              <Typography fontWeight="bold">Ui/Ux</Typography>
+            </Box>
+            <Box
+             display="flex"
+             // flexDirection="column"
+             alignItems="center"
+             // justifyContent="center"
+             sx={{
+               flexDirection:{xs:"row",md:"column"},
+               justifyContent:{xs:"space-between",md:"center"}
+             }}
             >
               <Avatar />
               <Typography fontSize="15px">lorem ipsim</Typography>
@@ -153,9 +221,13 @@ const AdminProjectCard = () => {
             </Box>
             <Box
               display="flex"
-              flexDirection="column"
+              // flexDirection="column"
               alignItems="center"
-              justifyContent="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection:{xs:"row",md:"column"},
+                justifyContent:{xs:"space-between",md:"center"}
+              }}
             >
               <Avatar />
               <Typography fontSize="15px">lorem ipsim</Typography>
@@ -163,9 +235,13 @@ const AdminProjectCard = () => {
             </Box>
             <Box
               display="flex"
-              flexDirection="column"
+              // flexDirection="column"
               alignItems="center"
-              justifyContent="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection:{xs:"row",md:"column"},
+                justifyContent:{xs:"space-between",md:"center"}
+              }}
             >
               <Avatar />
               <Typography fontSize="15px">lorem ipsim</Typography>
@@ -173,19 +249,13 @@ const AdminProjectCard = () => {
             </Box>
             <Box
               display="flex"
-              flexDirection="column"
+              // flexDirection="column"
               alignItems="center"
-              justifyContent="center"
-            >
-              <Avatar />
-              <Typography fontSize="15px">lorem ipsim</Typography>
-              <Typography fontWeight="bold">Ui/Ux</Typography>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-              justifyContent="center"
+              // justifyContent="center"
+              sx={{
+                flexDirection:{xs:"row",md:"column"},
+                justifyContent:{xs:"space-between",md:"center"}
+              }}
             >
               <Avatar />
               <Typography fontSize="15px">lorem ipsim</Typography>
@@ -208,14 +278,14 @@ const AdminProjectCard = () => {
         }}
       >
         <Box
-        //   width="40%"
+          //   width="40%"
           bgcolor="#fff"
           borderRadius="10px"
           sx={{
-            width: { xs: "90%", md: "60%",lg:"40%" },
+            width: { xs: "90%", md: "60%", lg: "40%" },
           }}
         >
-          <AdminEditProject open={open} setOpen={setOpen} edit={false}/>
+          <AdminEditProject open={open} setOpen={setOpen} edit={false} />
         </Box>
       </Modal>
     </>

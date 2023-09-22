@@ -66,13 +66,13 @@ const AdminAddProject = ({ open, setOpen }) => {
         justifyContent="space-between"
         gap={2}
       >
-        <Grid item md={4}>
+        <Grid item md={4} xs={12}>
           <Typography>Client name</Typography>
-          <TextField placeholder="ABCD Traders" />
+          <TextField placeholder="ABCD Traders" fullWidth />
         </Grid>
-        <Grid item md={4}>
+        <Grid item md={4} xs={12}>
           <Typography>Project name</Typography>
-          <TextField placeholder="ABCD" />
+          <TextField placeholder="ABCD" fullWidth />
         </Grid>
         <Grid
           container
@@ -83,20 +83,20 @@ const AdminAddProject = ({ open, setOpen }) => {
           display="flex"
           justifyContent="space-between"
         >
-          <Grid item md={4}>
+          <Grid item md={4} xs={6}>
             <Typography>Starting date</Typography>
-            <TextField type="date" fullWidth />
+            <TextField type="date" fullWidth /> 
           </Grid>
-          <Grid item md={3}>
+          <Grid item md={3} xs={5}>
             <Typography>Period</Typography>
             <TextField placeholder="90 days" fullWidth />
           </Grid>
-          <Grid item md={4}>
+          <Grid item md={4} xs={12}>
             <Typography>Project Type</Typography>
             <TextField placeholder="E-Commerce" fullWidth />
           </Grid>
 
-          <Grid item md={7.5}>
+          <Grid item md={7.5} xs={5}>
             <Typography>Employees</Typography>
             <Select
               value={selectedValue}
