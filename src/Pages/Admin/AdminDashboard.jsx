@@ -52,7 +52,7 @@ function AdminDashboard() {
                 md={4}
                 // style={{ backgroundColor: "red", height: 20 }}
               >
-                <DashboardReminderContainer height={"100%"} />
+                <DashboardReminderContainer height={"100%"} admin={true} />
               </Grid>
             </Grid>
             <Grid container item xs={12} sm={12} p={1}>

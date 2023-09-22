@@ -12,7 +12,7 @@ const AdminProjects = () => {
     <>
       <Box
         p={1}
-        width="100%"
+        width={1275}
         display="flex"
         alignItems="center"
         justifyContent="space-between"

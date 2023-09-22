@@ -131,7 +131,13 @@ const AddTask = ({ handleClose, admin }) => {
             }}
           />
         </Box>
-        <Box width={300} mt={2} ml="auto">
+        <Box
+          width={300}
+          mt={2}
+          sx={{
+            ml: { xs: 5, md: "auto" },
+          }}
+        >
           <Typography fontSize="14px" fontWeight="bold" marginBottom="8px">
             Priority
           </Typography>

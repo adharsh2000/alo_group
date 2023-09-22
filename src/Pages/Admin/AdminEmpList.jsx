@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -16,12 +16,15 @@ import AdminEmpListContainer from "../../Components/AdminComponents/AdminEmpList
 import { Link } from "react-router-dom";
 import FormClose from "../../Icons/FormClose.svg";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
+import { useMediaQuery } from "@mui/material";
 
 const AdminEmpList = () => {
   const theme = useTheme();
   const bgcolor = theme?.palette?.primary?.main;
 
-  const [open, setOpen] = React.useState(false);
+  const isXs = useMediaQuery((theme) => theme.breakpoints.down("xs"));
+
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -49,6 +52,11 @@ const AdminEmpList = () => {
         display="flex"
         alignItems="center"
         justifyContent="center"
+        // width={1275}
+        sx={{
+          width: { xs: "100%", md: 1275 },
+          // gap:{xs:1,md:0}
+        }}
       >
         {/* Typography */}
         <Grid
@@ -76,7 +84,14 @@ const AdminEmpList = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <Box display="flex" bgcolor="white" borderRadius="10px">
+          <Box
+            display="flex"
+            bgcolor="white"
+            borderRadius="10px"
+            sx={{
+              my: { xs: 1, md: 0 },
+            }}
+          >
             <Button
               sx={{
                 backgroundColor: bgcolor,
@@ -156,15 +171,22 @@ const AdminEmpList = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          overflow: { xs: "scroll", md: "" },
+          // pt:{xs:15,md:0},
         }}
       >
         <Box
           display="flex"
           flexDirection="column"
-          width="50%"
+          // width="50%"
           bgcolor="#fff"
           borderRadius="10px"
           p={2}
+          sx={{
+            width: { xs: "90%", md: "50%" },
+            height: { xs: 1100, md: "auto" },
+            mt: { xs: 40, md: 0 },
+          }}
         >
           {/* form Header */}
           <Box display="flex" alignItems="center" mt={1}>
@@ -190,19 +212,29 @@ const AdminEmpList = () => {
           {/* form content */}
           <Grid
             container
-            xs={12}
-            sm={12}
-            md={12}
+            // xs={12}
+            // sm={12}
+            // md={12}
             p={2}
             display="flex"
             justifyContent="space-between"
-            gap={2}
+            // gap={2}
+            sx={{
+              gap: { xs: 0, md: 2 },
+            }}
           >
-            <Grid item md={4}>
+            <Grid item 
+            md={4} 
+            xs={12}
+            >
               <Typography>Employee name</Typography>
-              <TextField placeholder="full name" />
+              <TextField
+                placeholder="full name"
+                size={isXs ? "small" : "medium"}
+                fullWidth
+              />
             </Grid>
-            <Grid item md={4}>
+            <Grid item md={4} xs={12}>
               <Typography>Gender</Typography>
               <Select
                 // value={selectedValue}
@@ -211,6 +243,7 @@ const AdminEmpList = () => {
                 inputProps={{ "aria-label": "Without label" }}
                 fullWidth
                 placeholder="Choose"
+                
               >
                 <MenuItem value="Choose">
                   <em>Choose</em>
@@ -229,15 +262,15 @@ const AdminEmpList = () => {
               display="flex"
               justifyContent="space-between"
             >
-              <Grid item md={4}>
+              <Grid item md={4} xs={8}>
                 <Typography>Date of Birth</Typography>
                 <TextField type="date" fullWidth />
               </Grid>
-              <Grid item md={3}>
+              <Grid item md={3} xs={3}>
                 <Typography>Age</Typography>
                 <TextField placeholder="age" fullWidth />
               </Grid>
-              <Grid item md={4}>
+              <Grid item md={4} xs={12}>
                 <Typography>Experience</Typography>
                 <Select
                   // value={selectedValue}
@@ -256,26 +289,32 @@ const AdminEmpList = () => {
                 </Select>
               </Grid>
 
-              <Grid item md={7.5}>
+              <Grid item md={7.5} xs={12}>
                 <Typography>Email Address</Typography>
-                <TextField placeholder="full name" fullWidth />
+                <TextField
+                  placeholder="full name"
+                  fullWidth
+                  size={isXs ? "small" : "medium"}
+                />
               </Grid>
 
-              <Grid item md={4}>
+              <Grid item md={4} >
                 <Typography>Designation</Typography>
-                <TextField placeholder="full name" fullwidth />
+                <TextField placeholder="full name" fullwidth sx={{
+                  width:{xs:"130%",md:"100%"}
+                }} />
               </Grid>
 
-              <Grid item md={7.5}>
+              <Grid item md={7.5} xs={12}>
                 <Stack>
                   <Typography>Phone Number</Typography>
                   <TextField placeholder="full name" fullWidth />
                 </Stack>
-                <Stack width="60%">
+                <Stack  sx={{width:{xs:"100%",md:"60%"}}}>
                   <Typography>Enter Password</Typography>
-                  <TextField placeholder="full name"  />
+                  <TextField placeholder="full name" />
                 </Stack>
-                <Stack width="60%">
+                <Stack sx={{width:{xs:"100%",md:"60%"}}}>
                   <Typography>Confirm Password</Typography>
                   <TextField placeholder="full name" />
                 </Stack>

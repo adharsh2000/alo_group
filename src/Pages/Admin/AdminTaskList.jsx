@@ -3,6 +3,7 @@ import {
   Button,
   //   FormControl,
   Grid,
+  Modal,
   //   InputLabel,
   //   MenuItem,
   //   Select,
@@ -19,6 +20,10 @@ import EmpListCard from "../../Components/AdminComponents/EmpListCard";
 const AdminTaskList = () => {
   const theme = useTheme();
   const bgcolor = theme?.palette?.primary?.main;
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   return (
     // <>
     //   <Grid
@@ -137,25 +142,69 @@ const AdminTaskList = () => {
         display="flex"
         // alignItems="center"
         // justifyContent="center"
-        p={1}
+        // p={1}
+        // width={1275}
+        sx={{
+          width: { xs: "100%", md: 1275 },
+          flexDirection: { xs: "column", md: "row" },
+        }}
+        // mx="auto"
       >
         <Box
           width="70%"
           display="flex"
           flexDirection="column"
           alignItems="center"
+          sx={{
+            width: { xs: "100%", md: "70%" },
+          }}
+          mx="auto"
         >
           <Box
             display="flex"
-            px={2}
+            // px={2}
             alignItems="center"
             justifyContent="space-between"
             width="100%"
             // bgcolor="red"
+            sx={{
+              flexDirection: { xs: "column", md: "row" },
+              px: { xs: 0, md: 2 },
+            }}
+            // mx="auto"
           >
-            <Typography fontWeight="bold" fontSize="20px">
-              Employees
-            </Typography>
+            <Box
+              sx={{
+                width: { xs: "100%", md: "10%" },
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-around",
+                // bgcolor:"red",
+                mb: { xs: 2, md: 0 },
+              }}
+            >
+              <Typography fontWeight="bold" fontSize="20px">
+                Tasks
+              </Typography>
+
+              <Button
+                sx={{
+                  backgroundColor: bgcolor,
+                  color: "#fff",
+                  "&:hover": {
+                    backgroundColor: bgcolor,
+                  },
+                  "&:focus": {
+                    backgroundColor: bgcolor,
+                  },
+                  padding: "10px 50px",
+                  display: { xs: "block", md: "none" },
+                }}
+                onClick={handleOpen}
+              >
+                Add Task
+              </Button>
+            </Box>
 
             <Box display="flex" bgcolor="white" borderRadius="10px">
               <Button
@@ -203,11 +252,21 @@ const AdminTaskList = () => {
             justifyContent="space-between"
             mt={1}
             borderRadius="10px"
+            sx={{
+              flexDirection: { xs: "column", md: "row" },
+              width: { xs: "100%", md: "97%" },
+            }}
           >
             <Typography fontWeight="bold" fontSize="20px" ml={1}>
               All Tasks
             </Typography>
-            <Box display="flex" alignItems="center">
+            <Box
+              display="flex"
+              alignItems="center"
+              // sx={{
+              //   flexDirection:{xs:"column",md:"row"}
+              // }}
+            >
               <Box
                 display="flex"
                 alignItems="center"
@@ -260,6 +319,10 @@ const AdminTaskList = () => {
             mt={1}
             p={1}
             minHeight={500}
+            // mx="auto"
+            sx={{
+              ml: { xs: 1, md: 0 },
+            }}
           >
             <EmpListCard task={true} />
             <EmpListCard task={true} />
@@ -269,10 +332,35 @@ const AdminTaskList = () => {
             <EmpListCard task={true} />
           </Box>
         </Box>
-        <Box width="30%" bgcolor="#fff" borderRadius="10px">
+        <Box
+          width="30%"
+          bgcolor="#fff"
+          borderRadius="10px"
+          sx={{
+            display: { xs: "none", md: "block" },
+          }}
+        >
           <AddTask admin={true} />
         </Box>
       </Grid>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box sx={{
+          bgcolor:"#fff",
+          borderRadius:"10px",
+        }}>
+          <AddTask admin={true} />
+        </Box>
+      </Modal>
     </>
   );
 };
