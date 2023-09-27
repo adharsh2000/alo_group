@@ -14,8 +14,11 @@ import React from "react";
 import CompanyLogo from "../../Icons/CompanyIcon.svg";
 import Person from "../../Icons/Person.svg";
 import { useTheme } from "@emotion/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userHeaderData } from "../../data/userNavbar";
+import { useDispatch, useSelector } from "react-redux";
+import { user_Data, user_Token } from "../../constants/tokenData";
+import { clearUserData } from "../../Store/Slices/userSlice";
 
 const Nav = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -27,6 +30,16 @@ const UserNavbar = ({ open, setOpen }) => {
   const theme = useTheme();
   const bgColor = theme?.palette?.background?.paper;
   const textColor = theme?.palette?.primary?.main;
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const {name} = useSelector((state) => state.user.userData)
+
+  const handleLogout = () => {
+    localStorage.removeItem(user_Token)
+    localStorage.removeItem(user_Data)
+    dispatch(clearUserData())
+    navigate("/login")
+  }
 
   const navBar = () => {
     return (
@@ -65,7 +78,7 @@ const UserNavbar = ({ open, setOpen }) => {
                   mb: 0,
                 }}
               >
-                Lorem Ipsum
+                {name}
               </Typography>
               <Typography
                 variant="overline"
@@ -91,6 +104,7 @@ const UserNavbar = ({ open, setOpen }) => {
               <Link
                 to={item.url}
                 style={{ textDecoration: "none", color: "#000" }}
+                onClick={item.name === "Logout" && handleLogout}
               >
                 <Box display="flex">
                   <ListItemAvatar>

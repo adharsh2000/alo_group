@@ -1,11 +1,11 @@
-import { user_Token } from "../../constants/tokenData";
+import { user_Data, user_Token } from "../../constants/tokenData";
 import { postDataAPI } from "../../utils/apiHelper";
 import { showSnackbar } from "../Slices/alertSlice";
 import { clearLoad, setLoad } from "../Slices/loadingSlice";
 import { setUserData, setUserToken } from "../Slices/userSlice";
 
 
-export const userLogin = (data,navigate) => async (dispatch) => {
+export const userLogin = (data, navigate) => async (dispatch) => {
     dispatch(setLoad());
     try {
         const res = await postDataAPI('users/token', data);
@@ -15,6 +15,8 @@ export const userLogin = (data,navigate) => async (dispatch) => {
         dispatch(setUserData(userData));
         dispatch(setUserToken(userToken));
         localStorage.setItem(user_Token, userToken);
+        const userDataJSON = JSON.stringify(userData);
+        localStorage.setItem(user_Data, userDataJSON);
         navigate("/")
         dispatch(clearLoad());
         dispatch(showSnackbar({ open: true, message: res.data.message, severity: "success" }))
