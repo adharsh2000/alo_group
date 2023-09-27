@@ -19,7 +19,7 @@ export const userLogin = (data, navigate) => async (dispatch) => {
         localStorage.setItem(user_Data, userDataJSON);
         navigate("/")
         dispatch(clearLoad());
-        dispatch(showSnackbar({ open: true, message: res.data.message, severity: "success" }))
+        dispatch(showSnackbar({  message: res.data.message, severity: "success" }))
     } catch (err) {
         dispatch(clearLoad());
         dispatch(showSnackbar({ open: true, message: err.response.data.message, severity: "error" }))

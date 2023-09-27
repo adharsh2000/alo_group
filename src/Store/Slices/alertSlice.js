@@ -19,6 +19,11 @@ const snackbarSlice = createSlice({
     hideSnackbar: (state) => {
       state.open = false;
     },
+    // hideSnackbar: (state) => {
+    //   setTimeout(() => {
+    //     state.open = false;
+    //   }, 2000);
+    // },
   },
 });
 

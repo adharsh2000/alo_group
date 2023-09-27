@@ -13,7 +13,11 @@ import {
 } from "@mui/material";
 import CompanyLogo from "../../Icons/CompanyIcon.svg";
 import { adminHeaderData } from "../../data/adminNavbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { admin_Data, admin_Token } from "../../constants/tokenData";
+import { clearAdminData } from "../../Store/Slices/adminSlice";
+import { useDispatch } from "react-redux";
+import { showSnackbar } from "../../Store/Slices/alertSlice";
 
 const Nav = styled(Box)(({ theme }) => ({
   [theme.breakpoints.down("sm")]: {
@@ -25,6 +29,15 @@ const AdminNavbar = ({ open, setOpen }) => {
   const theme = useTheme();
   // const bgColor = theme?.palette?.background?.paper;
   const textColor = theme?.palette?.primary?.main;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(showSnackbar({ message: "logged out", severity: "success" }))
+    localStorage.removeItem(admin_Token);
+    localStorage.removeItem(admin_Data);
+    dispatch(clearAdminData());
+    navigate("/admin");
+  };
 
   const adminNav = () => {
     return (
@@ -59,6 +72,7 @@ const AdminNavbar = ({ open, setOpen }) => {
               <Link
                 to={item.url}
                 style={{ textDecoration: "none", color: "#000" }}
+                onClick={item.name === "Logout" && handleLogout}
               >
                 <Box display="flex">
                   <ListItemAvatar>
