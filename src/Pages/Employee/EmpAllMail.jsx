@@ -5,6 +5,7 @@ import { Box, Divider, Modal, Typography, useTheme } from "@mui/material";
 import LeftArrowIcon from "../../Icons/LeftArrowIcon.svg";
 import UserMailCard from "../../Components/UserComponents/UserMailCard";
 import { Link } from "react-router-dom";
+import EmpLayout from "./EmpLayout";
 
 const EmpAllMail = () => {
   const theme = useTheme();
@@ -21,7 +22,7 @@ const EmpAllMail = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
-    <>
+    <EmpLayout>
       <Box
         width="97%"
         mt={1}
@@ -140,7 +141,7 @@ const EmpAllMail = () => {
           </Box>
         </Box>
       </Modal>
-    </>
+    </EmpLayout>
     //   </Box>
     // </Box>
   );

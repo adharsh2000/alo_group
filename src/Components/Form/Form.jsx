@@ -18,6 +18,10 @@ import valid from "../../utils/validation";
 import { clearError, setError } from "../../Store/Slices/errorSlice";
 import { clearLoad, setLoad } from "../../Store/Slices/loadingSlice";
 import { getCookie, removeCookie, setCookie } from "../../utils/cookieHelper";
+import { postDataAPI } from "../../utils/apiHelper";
+import axios from "axios";
+import { adminLogin } from "../../Store/actions/adminAuth";
+import { userLogin } from "../../Store/actions/userAuth";
 
 const Form = ({ admin }) => {
   const theme = useTheme();
@@ -26,7 +30,7 @@ const Form = ({ admin }) => {
   const initialState = {
     email: "",
     password: "",
-    type: admin ? "admin" : "emp",
+    role: admin ? "admin" : "employee",
   };
 
   const [formData, setFormData] = useState(initialState);
@@ -62,7 +66,7 @@ const Form = ({ admin }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const check = valid(formData);
     if (check.errLength > 0) {
@@ -81,15 +85,15 @@ const Form = ({ admin }) => {
       removeCookie("rememberMe");
     }
 
-    dispatch(setLoad());
-    if (initialState.type === "admin") {
+    if (initialState.role === "admin") {
       // api call
-      navigate("/admin/dashboard");
+      dispatch(adminLogin(formData,navigate))
     } else {
-      navigate("/dashboard");
+      dispatch(userLogin(formData,navigate))
+      // navigate("/dashboard");
     }
     setFormData(initialState);
-    dispatch(clearLoad());
+    // dispatch(clearLoad());
   };
 
   return (
@@ -115,7 +119,7 @@ const Form = ({ admin }) => {
           <Box component="form" noValidate onSubmit={handleSubmit}>
             <Grid container>
               <Box display="flex" width="100%">
-                <Link to="/" style={{ textDecoration: "none", width: "100%" }}>
+                <Link to="/login" style={{ textDecoration: "none", width: "100%" }}>
                   <Box
                     sx={{
                       borderRadius: `20px, 50px`,

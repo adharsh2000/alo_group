@@ -21,6 +21,9 @@ import AdminLeaveReq from "./Pages/Admin/AdminLeaveReq";
 import AdminEmpWorkSheetTable from "./Pages/Admin/AdminEmpWorkSheetTable";
 import AdminEmpLeaveRecords from "./Pages/Admin/AdminEmpLeaveRecords";
 import EmpLayout from "./Pages/Employee/EmpLayout";
+import { PrivateRoutes } from "./Routes/privateRoutes";
+import { PublicRoutes } from "./Routes/publicRoutes";
+import NotFound from "./Pages/NotFound";
 
 
 function App() {
@@ -33,22 +36,39 @@ function App() {
       }}>
         <Routes>
           {/* employee */}
-          <Route path="/" element={<EmployeeLogin />} />
-          <Route path="/*"
+          <Route element={<PublicRoutes />}>
+            <Route path="/login" element={<EmployeeLogin />} />
+          </Route>
+          {/* <Route path="/*"
             element={
               <EmpLayout>
                 <Outlet />
               </EmpLayout>
             }
           >
-            <Route path="dashboard" element={<EmpDashboard />} />
-            <Route path="projects" element={<EmpProject />} />
-            <Route path="mytasks" element={<EmpTasks />} />
-            <Route path="mailing" element={<EmpMail />} />
-            <Route path="allmails" element={<EmpAllMail />} />
-            <Route path="notifications" element={<EmpNotifications />} />
-            <Route path="messages" element={<EmpMessages />} />
-            <Route path="leaverecords" element={<EmpLeave />} />
+            <Route element={<PrivateRoutes />}>
+              <Route index={true} element={<EmpDashboard />} />
+              <Route path="projects" element={<EmpProject />} />
+              <Route path="mytasks" element={<EmpTasks />} />
+              <Route path="mailing" element={<EmpMail />} />
+              <Route path="allmails" element={<EmpAllMail />} />
+              <Route path="notifications" element={<EmpNotifications />} />
+              <Route path="messages" element={<EmpMessages />} />
+              <Route path="leaverecords" element={<EmpLeave />} />
+              <Route path="*" element={<NotFound />} />
+            </Route>
+          </Route> */}
+
+          <Route element={<PrivateRoutes />}>
+            <Route path="/" element={<EmpDashboard />} />
+            <Route path="/projects" element={<EmpProject />} />
+            <Route path="/mytasks" element={<EmpTasks />} />
+            <Route path="/mailing" element={<EmpMail />} />
+            <Route path="/allmails" element={<EmpAllMail />} />
+            <Route path="/notifications" element={<EmpNotifications />} />
+            <Route path="/messages" element={<EmpMessages />} />
+            <Route path="/leaverecords" element={<EmpLeave />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
 
           {/* admin */}
@@ -77,6 +97,7 @@ function App() {
             <Route path="leaves" element={<AdminLeaveReq />} />
             <Route path="emp/worksheet" element={<AdminEmpWorkSheetTable />} />
             <Route path="emp/leaverecordes" element={<AdminEmpLeaveRecords />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </Box>

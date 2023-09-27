@@ -5,6 +5,7 @@ import { Box, Typography, useTheme } from "@mui/material";
 import MailIcon from "../../Icons/MailIcon.svg";
 import EmpMailForm from "../../Components/Form/EmpMailForm";
 import { Link } from "react-router-dom";
+import EmpLayout from "./EmpLayout";
 
 const EmpMail = () => {
   const theme = useTheme();
@@ -19,72 +20,74 @@ const EmpMail = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
-    <Box
-      display="flex"
-      gap={2}
-      justifyContent="space-evenly"
-      px={2}
-      // pr={3}
-      my={2}
-      height={"85vh"}
-      // sx={{
-      //   ml:{xs:0,md:5}
-      // }}
-      // width="100%"
-      sx={{
-        flexDirection: { xs: "column-reverse", md: "row" },
-      }}
-    >
-      <Box bgcolor={paper} flex={3} borderRadius="20px">
-        <EmpMailForm />
-      </Box>
+    <EmpLayout>
       <Box
-        bgcolor={paper}
-        flex={1}
         display="flex"
-        justifyContent="center"
-        // alignItems="center"
-        borderRadius="20px"
+        gap={2}
+        justifyContent="space-evenly"
+        px={2}
+        // pr={3}
+        my={2}
+        height={"85vh"}
+        // sx={{
+        //   ml:{xs:0,md:5}
+        // }}
+        // width="100%"
         sx={{
-          alignItems: { xs: "center", md: "flex-start" },
+          flexDirection: { xs: "column-reverse", md: "row" },
         }}
       >
+        <Box bgcolor={paper} flex={3} borderRadius="20px">
+          <EmpMailForm />
+        </Box>
         <Box
-          border="1px solid #000"
-          width="90%"
-          height={50}
+          bgcolor={paper}
+          flex={1}
           display="flex"
-          alignItems="center"
           justifyContent="center"
-          gap={2}
-          // mt={2}
-          boxShadow={boxShadow}
-          borderRadius="10px"
-          textAlign="center"
+          // alignItems="center"
+          borderRadius="20px"
           sx={{
-            mt: { xs: 0, md: 2 },
+            alignItems: { xs: "center", md: "flex-start" },
           }}
         >
-          <Link
-            to={"/allmails"}
-            style={{
-              textDecoration: "none",
-              color: "inherit",
-              display: "flex",
-              gap: 8,
+          <Box
+            border="1px solid #000"
+            width="90%"
+            height={50}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            gap={2}
+            // mt={2}
+            boxShadow={boxShadow}
+            borderRadius="10px"
+            textAlign="center"
+            sx={{
+              mt: { xs: 0, md: 2 },
             }}
           >
-            <img src={MailIcon} alt="mail" width={30} />
-            <Typography
-              fontWeight="bold"
-              sx={{ margin: "auto", whiteSpace: "nowrap" }}
+            <Link
+              to={"/allmails"}
+              style={{
+                textDecoration: "none",
+                color: "inherit",
+                display: "flex",
+                gap: 8,
+              }}
             >
-              All Mails
-            </Typography>
-          </Link>
+              <img src={MailIcon} alt="mail" width={30} />
+              <Typography
+                fontWeight="bold"
+                sx={{ margin: "auto", whiteSpace: "nowrap" }}
+              >
+                All Mails
+              </Typography>
+            </Link>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </EmpLayout>
     //   </Box>
     // </Box>
   );

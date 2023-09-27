@@ -6,6 +6,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import UserTaskCard from "../../Components/UserComponents/UserTaskCard";
 import addIcon from "../../Icons/AddIcon.svg";
 import AddTask from "../../Components/Form/AddTask";
+import EmpLayout from "./EmpLayout";
 
 const EmpTasks = () => {
   const theme = useTheme();
@@ -24,7 +25,7 @@ const EmpTasks = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
-    <>
+    <EmpLayout>
       <Box display="flex">
         <Box
           width="100%"
@@ -215,7 +216,7 @@ const EmpTasks = () => {
           <AddTask handleClose={handleClose} />
         </Box>
       </Modal>
-    </>
+    </EmpLayout>
     // </Box>
   );
 };

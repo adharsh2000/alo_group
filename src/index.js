@@ -7,17 +7,18 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Store';
 import BackDropLoader from './Components/Common/BackDropLoader';
+import PositionedSnackbar from './Components/Common/SnackBar';
 
 // import {configDotenv} from "dotenv"
 
 // configDotenv();
-console.log(process.env);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <PositionedSnackbar />
         <BackDropLoader />
       </BrowserRouter>
     </Provider>

@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 // import UserNavbar from "../../Components/UserComponents/UserNavbar";
 // import UserHeader from "../../Components/UserComponents/UserHeader";
 import LeaveCalender from "../../Components/Common/LeaveCalender";
+import EmpLayout from "./EmpLayout";
 
 const EmpLeave = () => {
   // const theme = useTheme();
@@ -14,6 +15,8 @@ const EmpLeave = () => {
     //   </Box>
     //   <Box ml={36}>
     //     <UserHeader />
+    <EmpLayout>
+
     <Box
       width="97%"
       bgcolor="#fff"
@@ -65,6 +68,7 @@ const EmpLeave = () => {
         </Box>
       </Box>
     </Box>
+    </EmpLayout>
     //   </Box>
     // </Box>
   );

@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 const BackDropLoader = () => {
   const load = useSelector((state) => state.load);
-  console.log(load);
   return (
     <div>
       <Backdrop

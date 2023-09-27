@@ -2,7 +2,7 @@ export const userHeaderData = [
     {
         id: 1,
         // url:'/overview',
-        url: '/dashboard',
+        url: '/',
         image: (<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.5">
                 <path d="M11.6663 2.33325V25.6666M11.6663 13.9999H25.6663M10.4997 25.6666H17.4997C23.333 25.6666 25.6663 23.3333 25.6663 17.4999V10.4999C25.6663 4.66659 23.333 2.33325 17.4997 2.33325H10.4997C4.66634 2.33325 2.33301 4.66659 2.33301 10.4999V17.4999C2.33301 23.3333 4.66634 25.6666 10.4997 25.6666Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
