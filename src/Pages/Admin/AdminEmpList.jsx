@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Grid,
+  IconButton,
+  InputAdornment,
   MenuItem,
   Modal,
   Select,
@@ -17,6 +19,12 @@ import { Link } from "react-router-dom";
 import FormClose from "../../Icons/FormClose.svg";
 import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 import { useMediaQuery } from "@mui/material";
+import { EmpAddValidation } from "../../utils/validation";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
+import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
+import { useDispatch, useSelector } from "react-redux";
+import { clearError, setError } from "../../Store/Slices/errorSlice";
+import { adminAddEmp } from "../../Store/actions/adminEmp";
 
 const AdminEmpList = () => {
   const theme = useTheme();
@@ -27,6 +35,32 @@ const AdminEmpList = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
+
+  const initialState = {
+    fullname: "",
+    gender: "choose",
+    dateofbirth: "",
+    age: "",
+    experience: "choose",
+    email: "",
+    designation: "",
+    phone: "",
+    password: "",
+    cfpassword: "",
+    imgUrl: "https://img.freepik.com/free-photo/cheerful-curly-business-girl-wearing-glasses_176420-206.jpg?w=996&t=st=1695822053~exp=1695822653~hmac=42c3f32b470936f4579dc6742bb2e0219f550b2a37c7c98e5d276cff4b2567b6",
+  };
+
+  const [empData, setEmpdata] = useState(initialState);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showCfPassword, setShowCfPassword] = useState(false);
+  const { errorMessage } = useSelector((state) => state.error);
+  const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+
+  const handleChangeInput = (e) => {
+    const { name, value } = e.target;
+    setEmpdata({ ...empData, [name]: value });
+  };
 
   const fileInputRef = useRef(null);
 
@@ -34,12 +68,65 @@ const AdminEmpList = () => {
     fileInputRef.current.click(); // Trigger the hidden file input
   };
 
-  const handleFileSelect = (e) => {
+  const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
+
     if (selectedFile) {
-      // Do something with the selected file, like displaying its name
-      alert(`Selected file: ${selectedFile.name}`);
+      if (!allowedTypes.includes(selectedFile.type)) {
+        console.log(selectedFile);
+        e.target.value = ""; // Clear the file input
+      }
     }
+  };
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleClickShowCfPassword = () => {
+    setShowCfPassword(!showCfPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+  const handleMouseDownCfPassword = (event) => {
+    event.preventDefault();
+  };
+
+  const reverseDate = (dateString) => {
+  // Split the date string into its components (year, month, and day)
+  const dateComponents = dateString.split("-");
+  
+  // Rearrange the components as "dd-mm-yyyy"
+  const reversedDate = dateComponents.reverse().join("-");
+  
+  return reversedDate;
+};
+
+  const formData = {
+    name : empData.fullname,
+    email: empData.email,
+    password : empData.password,
+    gender : empData.gender,
+    dob : reverseDate(empData.dateofbirth),
+    imgUrl : empData.imgUrl,
+    age : Number(empData.age),
+    mobileNo : Number(empData.phone),
+    experience : empData.experience,
+    designation : empData.designation,
+    role : "employee"
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const check = EmpAddValidation(empData);
+    if (check.errLength > 0) {
+      dispatch(setError(check.errMsg));
+      return;
+    }
+    dispatch(clearError());
+    dispatch(adminAddEmp(formData))
+    setEmpdata(initialState);
   };
 
   return (
@@ -187,6 +274,9 @@ const AdminEmpList = () => {
             height: { xs: 1100, md: "auto" },
             mt: { xs: 40, md: 0 },
           }}
+          component="form"
+          noValidate
+          onSubmit={handleSubmit}
         >
           {/* form Header */}
           <Box display="flex" alignItems="center" mt={1}>
@@ -229,7 +319,22 @@ const AdminEmpList = () => {
                 placeholder="full name"
                 size={isXs ? "small" : "medium"}
                 fullWidth
+                name="fullname"
+                value={empData.fullname}
+                onChange={handleChangeInput}
+                // helperText={errorMessage && errorMessage.fullname}
+                error={errorMessage && errorMessage.fullname}
               />
+              {errorMessage && errorMessage.fullname ? (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#f51",
+                  }}
+                >
+                  {errorMessage.fullname}
+                </p>
+              ) : null}
             </Grid>
             <Grid item md={4} xs={12}>
               <Typography>Gender</Typography>
@@ -240,14 +345,30 @@ const AdminEmpList = () => {
                 inputProps={{ "aria-label": "Without label" }}
                 fullWidth
                 placeholder="Choose"
+                name="gender"
+                value={empData.gender}
+                onChange={handleChangeInput}
+                // helperText={errorMessage && errorMessage.gender}
+                error={errorMessage && errorMessage.gender}
               >
-                <MenuItem value="Choose">
+                {/* <MenuItem value="Choose">
                   <em>Choose</em>
-                </MenuItem>
-                <MenuItem value={10}>Male</MenuItem>
-                <MenuItem value={20}>Female</MenuItem>
-                <MenuItem value={30}>Other</MenuItem>
+                </MenuItem> */}
+                <MenuItem value="choose">Choose</MenuItem>
+                <MenuItem value="male">Male</MenuItem>
+                <MenuItem value="female">Female</MenuItem>
+                <MenuItem value="other">Other</MenuItem>
               </Select>
+              {errorMessage && errorMessage.gender ? (
+                <p
+                  style={{
+                    fontSize: "12px",
+                    color: "#f51",
+                  }}
+                >
+                  {errorMessage.gender}
+                </p>
+              ) : null}
             </Grid>
             <Grid
               container
@@ -260,11 +381,46 @@ const AdminEmpList = () => {
             >
               <Grid item md={4} xs={8}>
                 <Typography>Date of Birth</Typography>
-                <TextField type="date" fullWidth />
+                <TextField
+                  type="date"
+                  fullWidth
+                  name="dateofbirth"
+                  value={empData.dateofbirth}
+                  onChange={handleChangeInput}
+                  error={errorMessage && errorMessage.date}
+                />
+                {errorMessage && errorMessage.date ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#f51",
+                    }}
+                  >
+                    {errorMessage.date}
+                  </p>
+                ) : null}
               </Grid>
               <Grid item md={3} xs={3}>
                 <Typography>Age</Typography>
-                <TextField placeholder="age" fullWidth />
+                <TextField
+                  placeholder="age"
+                  fullWidth
+                  type="number"
+                  name="age"
+                  value={empData.age}
+                  onChange={handleChangeInput}
+                  error={errorMessage && errorMessage.age}
+                />
+                {errorMessage && errorMessage.age ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#f51",
+                    }}
+                  >
+                    {errorMessage.age}
+                  </p>
+                ) : null}
               </Grid>
               <Grid item md={4} xs={12}>
                 <Typography>Experience</Typography>
@@ -275,48 +431,176 @@ const AdminEmpList = () => {
                   inputProps={{ "aria-label": "Without label" }}
                   fullWidth
                   placeholder="Choose"
+                  name="experience"
+                  value={empData.experience}
+                  onChange={handleChangeInput}
+                  error={errorMessage && errorMessage.gender}
                 >
-                  <MenuItem value="Choose">
-                    <em>1+ Experience</em>
-                  </MenuItem>
-                  <MenuItem value={10}>2+ Experience</MenuItem>
-                  <MenuItem value={20}>3+ Experience</MenuItem>
-                  <MenuItem value={30}>4+ Experience</MenuItem>
+                  <MenuItem value="choose">Choose</MenuItem>
+                  <MenuItem value="1+ Experience">1+ Experience</MenuItem>
+                  <MenuItem value="2+ Experience">2+ Experience</MenuItem>
+                  <MenuItem value="3+ Experience">3+ Experience</MenuItem>
                 </Select>
+                {errorMessage && errorMessage.experience ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#f51",
+                    }}
+                  >
+                    {errorMessage.experience}
+                  </p>
+                ) : null}
               </Grid>
 
               <Grid item md={7.5} xs={12}>
                 <Typography>Email Address</Typography>
                 <TextField
-                  placeholder="full name"
+                  placeholder="email"
                   fullWidth
                   size={isXs ? "small" : "medium"}
+                  name="email"
+                  value={empData.email}
+                  onChange={handleChangeInput}
+                  error={errorMessage && errorMessage.email}
                 />
+                {errorMessage && errorMessage.email ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#f51",
+                    }}
+                  >
+                    {errorMessage.email}
+                  </p>
+                ) : null}
               </Grid>
 
               <Grid item md={4}>
                 <Typography>Designation</Typography>
                 <TextField
-                  placeholder="full name"
+                  placeholder="designation"
                   fullwidth
                   sx={{
                     width: { xs: "130%", md: "100%" },
                   }}
+                  name="designation"
+                  value={empData.designation}
+                  onChange={handleChangeInput}
+                  error={errorMessage && errorMessage.designation}
                 />
+                {errorMessage && errorMessage.designation ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "#f51",
+                    }}
+                  >
+                    {errorMessage.designation}
+                  </p>
+                ) : null}
               </Grid>
 
               <Grid item md={7.5} xs={12}>
                 <Stack>
                   <Typography>Phone Number</Typography>
-                  <TextField placeholder="full name" fullWidth />
+                  <TextField
+                    placeholder="phone number"
+                    type="number"
+                    fullWidth
+                    name="phone"
+                    value={empData.phone}
+                    onChange={handleChangeInput}
+                    error={errorMessage && errorMessage.phone}
+                  />
+                  {errorMessage && errorMessage.phone ? (
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#f51",
+                      }}
+                    >
+                      {errorMessage.phone}
+                    </p>
+                  ) : null}
                 </Stack>
                 <Stack sx={{ width: { xs: "100%", md: "60%" } }}>
                   <Typography>Enter Password</Typography>
-                  <TextField placeholder="full name" />
+                  <TextField
+                    placeholder="password"
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={empData.password}
+                    onChange={handleChangeInput}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            edge="end"
+                          >
+                            {showPassword ? (
+                              <VisibilityOffOutlinedIcon />
+                            ) : (
+                              <VisibilityOutlinedIcon />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    error={errorMessage && errorMessage.password}
+                  />
+                  {errorMessage && errorMessage.password ? (
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#f51",
+                      }}
+                    >
+                      {errorMessage.password}
+                    </p>
+                  ) : null}
                 </Stack>
                 <Stack sx={{ width: { xs: "100%", md: "60%" } }}>
                   <Typography>Confirm Password</Typography>
-                  <TextField placeholder="full name" />
+                  <TextField
+                    placeholder="confirm password"
+                    type={showCfPassword ? "text" : "password"}
+                    name="cfpassword"
+                    value={empData.cfpassword}
+                    onChange={handleChangeInput}
+                    InputProps={{
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowCfPassword}
+                            onMouseDown={handleMouseDownCfPassword}
+                            edge="end"
+                          >
+                            {showPassword ? (
+                              <VisibilityOffOutlinedIcon />
+                            ) : (
+                              <VisibilityOutlinedIcon />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    }}
+                    error={errorMessage && errorMessage.cfpassword}
+                  />
+                  {errorMessage && errorMessage.cfpassword ? (
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "#f51",
+                      }}
+                    >
+                      {errorMessage.cfpassword}
+                    </p>
+                  ) : null}
                 </Stack>
               </Grid>
 
@@ -347,7 +631,7 @@ const AdminEmpList = () => {
                   <input
                     type="file"
                     accept=".jpg, .jpeg, .png, .gif"
-                    onChange={handleFileSelect}
+                    onChange={handleFileChange}
                     ref={fileInputRef}
                     style={{ display: "none" }}
                   />
@@ -361,6 +645,7 @@ const AdminEmpList = () => {
                       backgroundColor: "#1272A5",
                     },
                   }}
+                  type="submit"
                 >
                   Add Project
                 </Button>
