@@ -4,7 +4,7 @@ import { user_Data, user_Token } from '../../constants/tokenData';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    userData: JSON.parse(localStorage.getItem(user_Data)) || null,
+    userData: JSON.parse(localStorage.getItem(user_Data)) || null,  
     token: localStorage.getItem(user_Token) || null
   },
   reducers: {
