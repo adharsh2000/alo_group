@@ -14,8 +14,16 @@ import UploadFileOutlinedIcon from "@mui/icons-material/UploadFileOutlined";
 
 const AdminAddProject = ({ open, setOpen }) => {
   const [selectedValue, setSelectedValue] = useState("Choose");
-
   const fileInputRef = useRef(null);
+
+  const [employees, setEmployees] = useState([]);
+
+  const handleChangeEmployee = (event) => {
+    const {
+      target: { value },
+    } = event;
+    setEmployees(value);
+  };
 
   const handleImageClick = () => {
     fileInputRef.current.click(); // Trigger the hidden file input
@@ -99,9 +107,10 @@ const AdminAddProject = ({ open, setOpen }) => {
           <Grid item md={7.5} xs={5}>
             <Typography>Employees</Typography>
             <Select
-              value={selectedValue}
-              onChange={handleChange}
-              displayEmpty
+              value={employees}
+              onChange={handleChangeEmployee}
+              // displayEmpty
+              multiple
               inputProps={{ "aria-label": "Without label" }}
               fullWidth
               placeholder="Choose"

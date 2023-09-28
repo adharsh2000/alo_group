@@ -32,7 +32,6 @@ const AdminEmpList = () => {
   const bgcolor = theme?.palette?.primary?.main;
   console.log("page");
   const isXs = useMediaQuery((theme) => theme.breakpoints.down("xs"));
-  const { data } = useSelector((state) => state.employees)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -40,7 +39,7 @@ const AdminEmpList = () => {
 
   useEffect(() => {
     dispatch(adminListEmp());
-  }, [dispatch,data]);
+  }, [dispatch]);
 
   const initialState = {
     fullname: "",

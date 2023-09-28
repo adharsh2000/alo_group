@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, Divider, Grid, Modal, Typography } from "@mui/material";
 import addIcon from "../../Icons/AddIcon.svg";
 import AdminProjectCard from "../../Components/AdminComponents/AdminProjectCard";
 import AdminAddProject from "../../Components/Form/AdminAddProject";
+import { ListProjects } from "../../Store/actions/adminEmp";
+import { useDispatch } from "react-redux";
 
 const AdminProjects = () => {
   const [open, setOpen] = useState(false);
-
+  const dispatch = useDispatch();
   const handleClose = () => setOpen(!open);
+  
+  useEffect(() => {
+    dispatch(ListProjects());
+  }, [dispatch]);
+  
   return (
     <>
       <Box

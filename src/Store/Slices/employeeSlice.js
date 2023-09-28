@@ -15,8 +15,11 @@ const emplyeeSlice = createSlice({
             state.fetchCount = action.payload.fetchCount;
             state.totalCount = action.payload.totalCount;
         },
+        updateEmployeeList(state,action){
+            state.data.unshift(action.payload.data);
+        }
     }
 });
 
-export const { getEmployees } = emplyeeSlice.actions;
+export const { getEmployees,updateEmployeeList } = emplyeeSlice.actions;
 export default emplyeeSlice.reducer;

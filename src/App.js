@@ -28,6 +28,7 @@ import NotFound from "./Pages/NotFound";
 
 function App() {
   const theme = createTheme(defaultTheme());
+  console.log("app rendered");
   return (
     <ThemeProvider theme={theme} >
       <Box sx={{
