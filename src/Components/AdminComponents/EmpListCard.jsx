@@ -20,7 +20,17 @@ const priorityColor = (priority) => {
   }
 };
 
-const EmpListCard = ({ task }) => {
+const EmpListCard = ({
+  task,
+  name,
+  gender,
+  dob="2023-07-07T00:00:00.000Z",
+  age,
+  designation,
+  experience,
+  email,
+  imgUrl
+}) => {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -36,6 +46,10 @@ const EmpListCard = ({ task }) => {
 
   const theme = useTheme();
   const shadow = theme?.shape?.shadow;
+
+  const dateString = dob;
+  const dateObject = new Date(dateString);
+  const formattedDate = dateObject.toISOString().split("T")[0];
   return (
     <Box
       width="100%"
@@ -66,7 +80,7 @@ const EmpListCard = ({ task }) => {
       >
         <Avatar
           alt="Remy Sharp"
-          src="/static/images/avatar/1.jpg"
+          src={imgUrl}
           sx={{ width: 56, height: 56, borderRadius: 1 }}
         />
 
@@ -126,7 +140,7 @@ const EmpListCard = ({ task }) => {
       >
         <Typography textAlign="center">Name</Typography>
         <Typography textAlign="center" fontWeight="bold">
-          Lorem Ipsum
+          {name}
         </Typography>
       </Box>
       <Box
@@ -146,7 +160,7 @@ const EmpListCard = ({ task }) => {
           {task ? "Assigning Date" : "Gender"}
         </Typography>
         <Typography textAlign="center" fontWeight="bold">
-          {task ? "jul,23,1995" : "Male"}
+          {task ? "jul,23,1995" : gender}
         </Typography>
       </Box>
       <Box
@@ -164,7 +178,7 @@ const EmpListCard = ({ task }) => {
       >
         <Typography textAlign="center">{task ? "Project" : "D.O.B"}</Typography>
         <Typography textAlign="center" fontWeight="bold">
-          {task ? "Travo" : "jul,23,1995"}
+          {task ? "Travo" : formattedDate}
         </Typography>
       </Box>
       <Box
@@ -182,7 +196,7 @@ const EmpListCard = ({ task }) => {
       >
         <Typography textAlign="center">{task ? "Task Name" : "Age"}</Typography>
         <Typography textAlign="center" fontWeight="bold">
-          {task ? "Lorem ipsum" : "30"}
+          {task ? "Lorem ipsum" : age}
         </Typography>
       </Box>
       <Box
@@ -206,7 +220,7 @@ const EmpListCard = ({ task }) => {
           fontWeight="bold"
           color={task && priorityColor("High")}
         >
-          {task ? "High" : "Front End"}
+          {task ? "High" : designation}
         </Typography>
       </Box>
       <Box
@@ -226,7 +240,7 @@ const EmpListCard = ({ task }) => {
           {task ? "Report" : "Experience"}
         </Typography>
         <Typography textAlign="center" fontWeight="bold">
-          {task ? "Completed" : "3+"}
+          {task ? "Completed" : experience}
         </Typography>
       </Box>
       {!task && (
@@ -245,7 +259,7 @@ const EmpListCard = ({ task }) => {
         >
           <Typography textAlign="center">E-Mail</Typography>
           <Typography textAlign="center" fontWeight="bold">
-            LoremIpsum@gmail.com
+            {email}
           </Typography>
         </Box>
       )}

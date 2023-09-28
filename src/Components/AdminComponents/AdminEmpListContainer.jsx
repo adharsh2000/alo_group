@@ -1,9 +1,12 @@
+import React, { useEffect } from "react";
 import { Box, Divider, Grid, Typography } from "@mui/material";
-import React from "react";
 import EmpListCard from "./EmpListCard";
+import { adminListEmp } from "../../Store/actions/adminEmp";
+import { useDispatch, useSelector } from "react-redux";
 
 const AdminEmpListContainer = () => {
-  let count = 35;
+  const { data, fetchCount } = useSelector((state) => state.employees)
+
   return (
     <>
       <Grid
@@ -17,18 +20,22 @@ const AdminEmpListContainer = () => {
       >
         <Box width="100%" bgcolor="#fff" borderRadius="10px">
           <Typography fontWeight="bold" fontSize="20px" my={1} ml={2}>
-            {`Employes List (${count})`}
+            {`Employes List (${fetchCount})`}
           </Typography>
           <Divider />
           <Box width="100%" p={2} overflowY="auto">
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
-            <EmpListCard />
+            {data?.map((item, index) => (
+              <EmpListCard
+                imgUrl={item?.imgUrl}
+                name={item?.name}
+                gender={item?.gender}
+                dob={item?.dob}
+                age={item?.age}
+                designation={item?.designation}
+                experience={item?.experience}
+                email={item?.email}
+              />
+            ))}
           </Box>
         </Box>
       </Grid>

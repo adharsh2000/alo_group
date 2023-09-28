@@ -24,18 +24,23 @@ import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import { clearError, setError } from "../../Store/Slices/errorSlice";
-import { adminAddEmp } from "../../Store/actions/adminEmp";
+import { adminAddEmp, adminListEmp } from "../../Store/actions/adminEmp";
+import { useEffect } from "react";
 
 const AdminEmpList = () => {
   const theme = useTheme();
   const bgcolor = theme?.palette?.primary?.main;
-
+  console.log("page");
   const isXs = useMediaQuery((theme) => theme.breakpoints.down("xs"));
-
+  const { data } = useSelector((state) => state.employees)
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(adminListEmp());
+  }, [dispatch,data]);
 
   const initialState = {
     fullname: "",
